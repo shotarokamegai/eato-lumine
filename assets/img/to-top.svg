@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.31 36.43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-family: FuturaPT-Heavy, 'Futura PT';
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-linejoin: round;
+        stroke-width: 1.14px;
+      }
+    </style>
+  </defs>
+  <g id="_レイヤー_1-2" data-name="レイヤー 1">
+    <g>
+      <g>
+        <line class="cls-2" x1="14.65" y1="21.52" x2="14.65" y2=".57"/>
+        <polyline class="cls-2" points=".4 14.82 14.65 .57 28.9 14.82"/>
+      </g>
+      <text class="cls-1" transform="translate(4.07 33.31)"><tspan x="0" y="0">TOP</tspan></text>
+    </g>
+  </g>
+</svg>

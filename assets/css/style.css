@@ -637,40 +637,286 @@ body .hidden {
 @media screen and (max-width: 749px) {
   .show {
     opacity: 0;
-    transform: translate3d(0, 1.3333333333vw, 0);
+    transform: translate3d(0, 2.6666666667vw, 0);
     transition: transform cubic-bezier(0.19, 1, 0.22, 1) 3s, opacity cubic-bezier(0.19, 1, 0.22, 1) 3s;
   }
   .show.active {
     opacity: 1;
     will-change: opacity, transform;
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0);
+  }
+  .hover, a.underline {
+    transition: opacity 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+  .hover:active, a.underline:active {
+    opacity: 0.5;
+    will-change: opacity;
+  }
+  .scroll-trigger {
+    cursor: pointer;
   }
   #to-top {
     position: fixed;
-    right: 2.6666666667vw;
-    bottom: 16.6666666667vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 6.6666666667vw;
+    bottom: 20vw;
+    height: 13.3333333333vw;
     width: 13.3333333333vw;
+    border-radius: 100%;
+    background-color: rgb(40, 20, 117);
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+    border: 0.3333333333vw solid rgb(40, 20, 117);
+    will-change: background-color, opacity;
+    transition: opacity 0.5s cubic-bezier(0.65, 0.05, 0.36, 1), background-color 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
     z-index: 10;
+  }
+  #to-top svg {
+    width: 7.6vw;
+  }
+  #to-top svg .cls-1 {
+    fill: #ffffff;
+    will-change: fill;
+    transition: fill 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+  #to-top svg .cls-2 {
+    stroke: #ffffff;
+    will-change: stroke;
+    transition: stroke 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+  #to-top:active {
+    background-color: #ffffff;
+  }
+  #to-top:active svg .cls-1 {
+    fill: rgb(40, 20, 117);
+  }
+  #to-top:active svg .cls-2 {
+    stroke: rgb(40, 20, 117);
   }
   #to-top.active {
     pointer-events: initial;
     opacity: 1;
+  }
+  #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 11.2vw;
+    width: 25.6vw;
+    background-color: rgb(40, 20, 117);
+    z-index: 10;
+  }
+  #header a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    height: 100%;
+    width: 100%;
+  }
+  #header a img {
+    width: 16vw;
   }
   #footer {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 13.3333333333vw;
-    background-color: #000000;
+    background-color: rgb(40, 20, 117);
   }
   #footer p {
     font-size: 1.1rem;
     font-size: 2.9333333333vw;
     text-align: center;
     color: #ffffff;
+  }
+  main .section__inner {
+    margin: 0 auto;
+    width: 80vw;
+  }
+  main section {
+    position: relative;
+  }
+  main section#top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vw;
+    z-index: 1;
+  }
+  main section#top .logo {
+    z-index: 1;
+    width: 80vw;
+  }
+  main section#top .logo img {
+    visibility: hidden;
+  }
+  main section#top .logo img.visible {
+    visibility: visible;
+  }
+  main section#top .date {
+    position: absolute;
+    left: 50%;
+    bottom: -5vw;
+    transform: translate3d(-50%, 2.6666666667vw, 0);
+    height: 10vw;
+    line-height: 10vw;
+    width: 80vw;
+    text-align: center;
+    font-size: 2.275rem;
+    font-size: 6.0666666667vw;
+    letter-spacing: 0.08em;
+    border: 0.3333333333vw solid rgb(40, 20, 117);
+    border-radius: 4.9333333333vw;
+    background-color: #ffffff;
+  }
+  main section#top .date.active {
+    transform: translate3d(-50%, 0, 0);
+  }
+  main section#concept {
+    padding: 18.6666666667vw 0 36vw;
+    background-color: #E7E5F0;
+    background-image: url(./../../assets/img/stripe.svg);
+    background-size: 100%;
+    background-repeat: repeat;
+  }
+  main section#concept .concept-box {
+    padding: 13.3333333333vw 0;
+    margin-bottom: 13.3333333333vw;
+    border-radius: 10.6666666667vw;
+    background-color: rgb(40, 20, 117);
+    background-image: url(./../../assets/img/iitoki.svg);
+    background-size: 100%;
+    background-repeat: repeat;
+  }
+  main section#concept .concept-box h2 {
+    margin: 0 auto 13.3333333333vw;
+    width: 56.1639333333vw;
+  }
+  main section#concept .concept-box p {
+    font-size: 1.4rem;
+    font-size: 3.7333333333vw;
+    letter-spacing: 0.15em;
+    line-height: 2;
+    color: #ffffff;
+    text-align: center;
+  }
+  main section#concept .wrapper .content h3 {
+    position: relative;
+    padding-bottom: 6vw;
+    margin-bottom: 13.3333333333vw;
+    font-size: 2.9rem;
+    font-size: 7.7333333333vw;
+    letter-spacing: 0.1em;
+    color: rgb(40, 20, 117);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  main section#concept .wrapper .content h3.active::after {
+    transform: translate3d(0, 0, 0);
+  }
+  main section#concept .wrapper .content h3::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    content: "";
+    height: 0.3333333333vw;
+    width: 100%;
+    transform: translate3d(-102%, 0, 0);
+    will-change: transform;
+    background-color: rgb(40, 20, 117);
+    transition: transform cubic-bezier(0.8, 0, 0.2, 1) 1.5s;
+  }
+  main section#concept .wrapper .content p {
+    font-size: 1.4rem;
+    font-size: 3.7333333333vw;
+    letter-spacing: 0.02em;
+    line-height: 2;
+  }
+  main section#concept .wrapper .img {
+    margin-bottom: 13.3333333333vw;
+  }
+  main section#more {
+    padding: 44vw 0 26.6666666667vw;
+  }
+  main section#more .slider {
+    position: absolute;
+    top: -24vw;
+    left: 50%;
+    width: 100vw;
+    transform: translate3d(-50%, 0, 0);
+  }
+  main section#more .slider .marquee {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    gap: 4vw;
+    will-change: transform, top;
+  }
+  main section#more .slider .marquee-inner {
+    display: flex;
+    white-space: nowrap;
+    height: 48vw;
+    animation: marquee 30s linear infinite;
+  }
+  main section#more .slider .marquee-inner picture {
+    margin-right: 4vw;
+  }
+  main section#more .slider .marquee-inner picture:last-child {
+    margin-right: 0;
+  }
+  main section#more .slider .marquee-inner img {
+    height: 100%;
+    width: auto;
+    max-width: initial;
+  }
+  @keyframes marquee {
+    0% {
+      translate: 0;
+    }
+    100% {
+      translate: calc(-100% - 4vw);
+    }
+  }
+  main section#more .more {
+    text-align: center;
+  }
+  main section#more .more.active .en::after {
+    width: 100%;
+  }
+  main section#more .more p {
+    position: relative;
+    display: inline-block;
+  }
+  main section#more .more .en {
+    padding-bottom: 5.3333333333vw;
+    margin-bottom: 4.6666666667vw;
+    font-size: 2.05rem;
+    font-size: 5.4666666667vw;
+  }
+  main section#more .more .en::after {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    display: block;
+    content: "";
+    height: 0.3333333333vw;
+    width: 0%;
+    transform: translate3d(-50%, 0, 0);
+    will-change: width;
+    background-color: rgb(40, 20, 117);
+    transition: width cubic-bezier(0.8, 0, 0.2, 1) 1.5s;
+  }
+  main section#more .more .ja {
+    font-size: 1.2rem;
+    font-size: 3.2vw;
+    letter-spacing: 0.02em;
   }
 }
 @media screen and (min-width: 750px) {
@@ -737,38 +983,6 @@ body .hidden {
   #to-top.active {
     pointer-events: initial;
     opacity: 1;
-  }
-  #bottom {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-    right: 0;
-    height: 18.5rem;
-    width: 5rem;
-    background-color: #f7f8f8;
-    border: 0.1rem solid #000000;
-    transform: translate3d(0, -50%, 0);
-    z-index: 10;
-  }
-  #bottom .text {
-    font-feature-settings: initial;
-    writing-mode: vertical-rl;
-    font-size: 18px;
-    font-size: 1.8rem;
-    letter-spacing: 0.1em;
-    color: #000000;
-    font-weight: bold;
-  }
-  #bottom svg {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 1.5rem;
-  }
-  #bottom svg * {
-    fill: #221815;
   }
   #header {
     position: fixed;
@@ -938,6 +1152,9 @@ body .hidden {
   }
   main section#more .slider .marquee-inner picture {
     margin-right: 2rem;
+  }
+  main section#more .slider .marquee-inner picture:last-child {
+    margin-right: 0;
   }
   main section#more .slider .marquee-inner img {
     height: 100%;

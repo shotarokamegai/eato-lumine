@@ -69,38 +69,282 @@ body {
 @media screen and (max-width: 749px) {
   .show {
     opacity: 0;
-    transform: translate3d(0, vw(10), 0);
-    // transform: translate3d(0, rem(10), 0) scale(0.95);
-    // transition: transform ease 3s, opacity ease 3s;
+    // transform: translate3d(0, vw(10), 0);
+    transform: translate3d(0, vw(20), 0);
+    // transition: transform ease 1s, opacity ease 1s;
     transition: transform $slow 3s, opacity $slow 3s;
     &.active {
       opacity: 1;
       will-change: opacity, transform;
-      transform: translate3d(0, 0, 0) scale(1);
+      transform: translate3d(0, 0, 0);
     }
+  }
+  .hover, a.underline {
+    transition: opacity 0.5s $zoom;
+    &:active {
+      opacity: 0.5;
+      will-change: opacity;
+    }
+  }
+  .scroll-trigger {
+    cursor: pointer;
   }
   #to-top {
     position: fixed;
-    right: vw(20);
-    bottom: vw(125);
+    @include fitcenter();
+    right: vw(50);
+    bottom: vw(150);
+    height: vw(100);
     width: vw(100);
+    border-radius: 100%;
+    background-color: $navy;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s $zoom;
+    border: vw(2.5) solid $navy;
+    will-change: background-color, opacity;
+    transition: opacity 0.5s $zoom, background-color 0.5s $zoom;
     z-index: 10;
+    svg {
+      width: vw(57);
+      .cls-1 {
+        fill: $white;
+        will-change: fill;
+        transition: fill 0.5s $zoom;
+      }
+      .cls-2 {
+        stroke: $white;
+        will-change: stroke;
+        transition: stroke 0.5s $zoom;
+      }
+    }
+    &:active {
+      background-color: $white;
+      svg  {
+      .cls-1 {
+        fill: $navy;
+      }
+      .cls-2 {
+        stroke: $navy;
+      }
+      }
+    }
     &.active {
       pointer-events: initial;
       opacity: 1;
     }
   }
+  #header {
+    position: fixed;
+    top: 0;
+    left:0;
+    height: vw(84);
+    width: vw(192);
+    background-color: $navy;
+    z-index: 10;
+    a {
+      @include fitcenter();
+      @include center();
+      height: 100%;
+      width: 100%;
+      img {
+        width: vw(120);
+      }
+    }
+  }
   #footer {
     @include fitcenter();
     height: vw(100);
-    background-color: $black;
+    background-color: $navy;
     p {
       @include fontvw(22); 
       text-align: center;
       color: $white;
+    }
+  }
+  main {
+    .section__inner {
+      margin: 0 auto;
+      width: vw(600);
+    }
+    section {
+      position: relative;
+      &#top {
+        @include fitcenter();
+        height: vw(750); 
+        z-index: 1;
+        .logo {
+          z-index: 1;
+          width: vw(600);
+          img {
+          visibility: hidden;
+          &.visible {
+            visibility: visible;
+          }
+          }
+        }
+        .date {
+          position: absolute;
+          left: 50%;
+          bottom: vw(-37.5);
+          transform: translate3d(-50%, vw(20), 0);
+          height: vw(75);
+          line-height: vw(75);
+          width: vw(600);
+          text-align: center;
+          @include fontvw(45.5);
+          @include tracking(80);
+          border: vw(2.5) solid $navy;
+          border-radius: vw(37);
+          background-color: $white;
+          &.active {
+          transform: translate3d(-50%, 0, 0);
+          }
+        }
+      }
+      &#concept {
+        padding: vw(140) 0 vw(270);
+        background-color: $lightNavy;
+        background-image: url(./../../assets/img/stripe.svg);
+        background-size: 100%;
+        background-repeat: repeat;
+        .concept-box {
+          padding: vw(100) 0;
+          margin-bottom: vw(100);
+          border-radius: vw(80);
+          background-color: $navy;
+          background-image: url(./../../assets/img/iitoki.svg);
+          background-size: 100%;
+          background-repeat: repeat;
+          h2 {
+            margin: 0 auto vw(100);
+            width: vw(421.2295);
+          }
+          p {
+            @include fontvw(28);
+            @include tracking(150);
+            line-height: (56 / 28);
+            color: $white;
+            text-align: center;
+          }
+        }
+        .wrapper {
+          .content {
+            h3 {
+              position: relative;
+              padding-bottom: vw(45);
+              margin-bottom: vw(100);
+              @include fontvw(58);
+              @include tracking(100);
+              color: $navy;
+              white-space: nowrap;
+              overflow: hidden;
+              &.active {
+                &::after {
+                  transform: translate3d(0, 0, 0);
+                }
+              }
+              &::after {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: block;
+                content: '';
+                height: vw(2.5);
+                width: 100%;
+                transform: translate3d(-102%, 0, 0);
+                will-change: transform;
+                background-color: $navy;
+                transition: transform $slide 1.5s;
+              }
+            }
+            p {
+            @include fontvw(28);
+            @include tracking(20);
+            line-height: (56 / 28);
+            }
+          }
+          .img {
+            margin-bottom: vw(100);
+          }
+        }
+      }
+      &#more {
+        padding: vw(330) 0 vw(200);
+        .slider {
+          position: absolute;
+          top: vw(-180);
+          left: 50%;
+          width: 100vw;
+          transform: translate3d(-50%, 0, 0);
+          .marquee {
+            // @include center();
+            // opacity: 0;
+            display: flex;
+            white-space: nowrap;
+            overflow: hidden;
+            gap: vw(30);
+            will-change: transform, top;
+            // transition: opacity 2s $ziwaziwa, transform 2s $slide 2s, top 2s $slide 2s, position 0s 4s;
+          }
+          .marquee-inner {
+            display: flex;
+            white-space: nowrap;
+            height: vw(360);
+            animation: marquee 30s linear infinite;
+            picture {
+              margin-right: vw(30);
+            &:last-child {
+              margin-right: 0;
+            }
+            }
+            img {
+              height: 100%;
+              width: auto;
+              max-width: initial;
+            }
+          }
+          @keyframes marquee {
+            0%   { translate: 0; }
+            100% { translate: calc(-100% - vw(30)); }
+          }
+        }
+        .more {
+          text-align: center;
+            &.active {
+              .en {
+              &::after {
+                width: 100%;
+              }
+              }
+            }
+          p {
+            position: relative;
+            display: inline-block;
+          }
+          .en {
+            padding-bottom: vw(40);
+            margin-bottom: vw(35);
+            @include fontvw(41);
+            &::after {
+              position: absolute;
+              left: 50%;
+              bottom: 0;
+              display: block;
+              content: '';
+              height: vw(2.5);
+              width: 0%;
+              transform: translate3d(-50%, 0, 0);
+              will-change: width;
+              background-color: $navy;
+              transition: width $slide 1.5s;
+            }
+          }
+          .ja {
+            @include fontvw(24);
+            @include tracking(20);
+          }
+        }
+      }
     }
   }
 }
@@ -170,35 +414,6 @@ body {
     &.active {
       pointer-events: initial;
       opacity: 1;
-    }
-  }
-  #bottom {
-    position: fixed;
-    @include fitcenter();
-    top: 50%;
-    right: 0;
-    height: rem(185);
-    width: rem(50);
-    background-color: #f7f8f8;
-    border: rem(1) solid $black;
-    transform: translate3d(0, -50%, 0);
-    z-index: 10;
-    .text {
-      font-feature-settings: initial;
-      writing-mode: vertical-rl;
-      @include fontsize(18);
-      @include tracking(100);
-      color: $black;
-      font-weight: bold;
-    }
-    svg {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: rem(15);
-    }
-    svg * {
-      fill: #221815;
     }
   }
   #header {
@@ -361,6 +576,9 @@ body {
             animation: marquee 30s linear infinite;
             picture {
               margin-right: rem(20);
+            &:last-child {
+              margin-right: 0;
+            }
             }
             img {
               height: 100%;

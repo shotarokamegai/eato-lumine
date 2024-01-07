@@ -10,6 +10,7 @@ class main {
     this.header = document.getElementById('header');
     this.toTop = document.getElementById('to-top');
     this.top = document.getElementById('top');
+    this.logo = document.getElementById('logo');
     this.menu = document.getElementById('menu');
     this.footer = document.getElementById('footer');
     this.qa = document.getElementsByClassName('q');
@@ -122,6 +123,10 @@ class main {
     this.resizeEvent();
     window.scrollTo(0, 0);
     document.body.classList.add('loaded');
+    setTimeout(() => {
+      this.logo.setAttribute('src', './assets/img/logo.gif');
+      this.logo.classList.add('visible');
+    }, 500);
   }
 
   resizeEvent() {

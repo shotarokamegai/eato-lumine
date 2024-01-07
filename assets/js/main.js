@@ -140,6 +140,7 @@ var main = /*#__PURE__*/function () {
     this.header = document.getElementById('header');
     this.toTop = document.getElementById('to-top');
     this.top = document.getElementById('top');
+    this.logo = document.getElementById('logo');
     this.menu = document.getElementById('menu');
     this.footer = document.getElementById('footer');
     this.qa = document.getElementsByClassName('q');
@@ -246,9 +247,14 @@ var main = /*#__PURE__*/function () {
   }, {
     key: "init",
     value: function init() {
+      var _this2 = this;
       this.resizeEvent();
       window.scrollTo(0, 0);
       document.body.classList.add('loaded');
+      setTimeout(function () {
+        _this2.logo.setAttribute('src', './assets/img/logo.gif');
+        _this2.logo.classList.add('visible');
+      }, 500);
     }
   }, {
     key: "resizeEvent",

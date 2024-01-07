@@ -71,6 +71,7 @@ body {
     opacity: 0;
     transform: translate3d(0, vw(10), 0);
     // transform: translate3d(0, rem(10), 0) scale(0.95);
+    // transition: transform ease 3s, opacity ease 3s;
     transition: transform $slow 3s, opacity $slow 3s;
     &.active {
       opacity: 1;
@@ -108,7 +109,8 @@ body {
   .show {
     opacity: 0;
     // transform: translate3d(0, vw(10), 0);
-    transform: translate3d(0, rem(10), 0);
+    transform: translate3d(0, rem(20), 0);
+    // transition: transform ease 1s, opacity ease 1s;
     transition: transform $slow 3s, opacity $slow 3s;
     &.active {
       opacity: 1;
@@ -116,7 +118,7 @@ body {
       transform: translate3d(0, 0, 0);
     }
   }
-  .hover, .scroll-trigger, a.underline {
+  .hover, a.underline {
     transition: opacity 0.5s $zoom;
     &:hover {
       opacity: 0.5;
@@ -128,13 +130,43 @@ body {
   }
   #to-top {
     position: fixed;
+    @include fitcenter();
     right: rem(50);
     bottom: rem(100);
+    height: rem(50);
     width: rem(50);
+    border-radius: 100%;
+    background-color: $navy;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s $zoom;
+    border: rem(2) solid $navy;
+    will-change: background-color, opacity;
+    transition: opacity 0.5s $zoom, background-color 0.5s $zoom;
     z-index: 10;
+    svg {
+      width: rem(28.5);
+      .cls-1 {
+        fill: $white;
+        will-change: fill;
+        transition: fill 0.5s $zoom;
+      }
+      .cls-2 {
+        stroke: $white;
+        will-change: stroke;
+        transition: stroke 0.5s $zoom;
+      }
+    }
+    &:hover {
+      background-color: $white;
+      svg  {
+      .cls-1 {
+        fill: $navy;
+      }
+      .cls-2 {
+        stroke: $navy;
+      }
+      }
+    }
     &.active {
       pointer-events: initial;
       opacity: 1;
@@ -211,13 +243,19 @@ body {
         z-index: 1;
         .logo {
           z-index: 1;
-          width: rem(500);
+          width: rem(600);
+          img {
+          visibility: hidden;
+          &.visible {
+            visibility: visible;
+          }
+          }
         }
         .date {
           position: absolute;
           left: 50%;
           bottom: rem(-31.5);
-          transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, rem(20), 0);
           height: rem(63);
           line-height: rem(63);
           width: rem(500);
@@ -226,16 +264,26 @@ body {
           @include tracking(80);
           border: rem(2) solid $navy;
           border-radius: rem(31.5057);
+          background-color: $white;
+          &.active {
+          transform: translate3d(-50%, 0, 0);
+          }
         }
       }
       &#concept {
-        padding: rem(100) 0;
+        padding: rem(100) 0 rem(220);
         background-color: $lightNavy;
+        background-image: url(./../../assets/img/stripe.svg);
+        background-size: 100%;
+        background-repeat: repeat;
         .concept-box {
           padding: rem(100) 0;
           margin-bottom: rem(100);
           border-radius: rem(80);
           background-color: $navy;
+          background-image: url(./../../assets/img/iitoki.svg);
+          background-size: 100%;
+          background-repeat: repeat;
           h2 {
             margin: 0 auto rem(60);
             width: rem(648.4033);
@@ -258,6 +306,11 @@ body {
               @include tracking(100);
               color: $navy;
               overflow: hidden;
+              &.active {
+                &::after {
+                  transform: translate3d(0, 0, 0);
+                }
+              }
               &::after {
                 position: absolute;
                 left: 0;
@@ -266,9 +319,10 @@ body {
                 content: '';
                 height: rem(2);
                 width: 100%;
-                // transform: translate3d(-102%, 0, 0);
+                transform: translate3d(-102%, 0, 0);
                 will-change: transform;
                 background-color: $navy;
+                transition: transform $slide 1.5s;
               }
             }
             p {
@@ -284,8 +338,50 @@ body {
       }
       &#more {
         padding: rem(220) 0 rem(100);
+        .slider {
+          position: absolute;
+          top: rem(-120);
+          left: 50%;
+          width: 100vw;
+          transform: translate3d(-50%, 0, 0);
+          .marquee {
+            // @include center();
+            // opacity: 0;
+            display: flex;
+            white-space: nowrap;
+            overflow: hidden;
+            gap: 2rem;
+            will-change: transform, top;
+            // transition: opacity 2s $ziwaziwa, transform 2s $slide 2s, top 2s $slide 2s, position 0s 4s;
+          }
+          .marquee-inner {
+            display: flex;
+            white-space: nowrap;
+            height: rem(240);
+            animation: marquee 30s linear infinite;
+            picture {
+              margin-right: rem(20);
+            }
+            img {
+              height: 100%;
+              width: auto;
+              max-width: initial;
+            }
+          }
+          @keyframes marquee {
+            0%   { translate: 0; }
+            100% { translate: calc(-100% - 2rem); }
+          }
+        }
         .more {
           text-align: center;
+            &.active {
+              .en {
+              &::after {
+                width: 100%;
+              }
+              }
+            }
           p {
             position: relative;
             display: inline-block;
@@ -296,15 +392,16 @@ body {
             @include fontsize(30);
             &::after {
               position: absolute;
-              left: 0;
+              left: 50%;
               bottom: 0;
               display: block;
               content: '';
               height: rem(2);
-              width: 100%;
-              // transform: translate3d(-102%, 0, 0);
-              will-change: transform;
+              width: 0%;
+              transform: translate3d(-50%, 0, 0);
+              will-change: width;
               background-color: $navy;
+              transition: width $slide 1.5s;
             }
           }
           .ja {

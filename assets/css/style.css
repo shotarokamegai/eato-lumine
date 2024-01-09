@@ -635,6 +635,9 @@ body .hidden {
 }
 
 @media screen and (max-width: 749px) {
+  .marquee-slider .swiper-wrapper {
+    transition-timing-function: linear;
+  }
   .show {
     opacity: 0;
     transform: translate3d(0, 2.6666666667vw, 0);
@@ -708,6 +711,16 @@ body .hidden {
     background-color: rgb(40, 20, 117);
     z-index: 10;
   }
+  #header::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 0.8vw;
+    width: 100vw;
+    display: block;
+    background-color: rgb(40, 20, 117);
+  }
   #header a {
     display: flex;
     align-items: center;
@@ -735,6 +748,9 @@ body .hidden {
     text-align: center;
     color: #ffffff;
   }
+  main {
+    overflow: hidden;
+  }
   main .section__inner {
     margin: 0 auto;
     width: 80vw;
@@ -761,16 +777,15 @@ body .hidden {
   }
   main section#top .date {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     left: 50%;
     bottom: -5vw;
     transform: translate3d(-50%, 2.6666666667vw, 0);
     height: 10vw;
     line-height: 10vw;
     width: 80vw;
-    text-align: center;
-    font-size: 2.275rem;
-    font-size: 6.0666666667vw;
-    letter-spacing: 0.08em;
     border: 0.3333333333vw solid rgb(40, 20, 117);
     border-radius: 4.9333333333vw;
     background-color: #ffffff;
@@ -778,11 +793,15 @@ body .hidden {
   main section#top .date.active {
     transform: translate3d(-50%, 0, 0);
   }
+  main section#top .date img {
+    height: 4.5289066667vw;
+    width: auto;
+  }
   main section#concept {
     padding: 18.6666666667vw 0 36vw;
     background-color: #E7E5F0;
     background-image: url(./../../assets/img/stripe.svg);
-    background-size: 100%;
+    background-size: 200%;
     background-repeat: repeat;
   }
   main section#concept .concept-box {
@@ -791,7 +810,7 @@ body .hidden {
     border-radius: 10.6666666667vw;
     background-color: rgb(40, 20, 117);
     background-image: url(./../../assets/img/iitoki.svg);
-    background-size: 100%;
+    background-size: 200%;
     background-repeat: repeat;
   }
   main section#concept .concept-box h2 {
@@ -816,6 +835,7 @@ body .hidden {
     color: rgb(40, 20, 117);
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
   }
   main section#concept .wrapper .content h3.active::after {
     transform: translate3d(0, 0, 0);
@@ -852,38 +872,6 @@ body .hidden {
     width: 100vw;
     transform: translate3d(-50%, 0, 0);
   }
-  main section#more .slider .marquee {
-    display: flex;
-    white-space: nowrap;
-    overflow: hidden;
-    gap: 4vw;
-    will-change: transform, top;
-  }
-  main section#more .slider .marquee-inner {
-    display: flex;
-    white-space: nowrap;
-    height: 48vw;
-    animation: marquee 30s linear infinite;
-  }
-  main section#more .slider .marquee-inner picture {
-    margin-right: 4vw;
-  }
-  main section#more .slider .marquee-inner picture:last-child {
-    margin-right: 0;
-  }
-  main section#more .slider .marquee-inner img {
-    height: 100%;
-    width: auto;
-    max-width: initial;
-  }
-  @keyframes marquee {
-    0% {
-      translate: 0;
-    }
-    100% {
-      translate: calc(-100% - 4vw);
-    }
-  }
   main section#more .more {
     text-align: center;
   }
@@ -897,8 +885,10 @@ body .hidden {
   main section#more .more .en {
     padding-bottom: 5.3333333333vw;
     margin-bottom: 4.6666666667vw;
-    font-size: 2.05rem;
-    font-size: 5.4666666667vw;
+  }
+  main section#more .more .en img {
+    margin: 0 auto;
+    width: 76.7406266667vw;
   }
   main section#more .more .en::after {
     position: absolute;
@@ -920,6 +910,9 @@ body .hidden {
   }
 }
 @media screen and (min-width: 750px) {
+  .marquee-slider .swiper-wrapper {
+    transition-timing-function: linear;
+  }
   .show {
     opacity: 0;
     transform: translate3d(0, 2rem, 0);
@@ -993,6 +986,16 @@ body .hidden {
     background-color: rgb(40, 20, 117);
     z-index: 10;
   }
+  #header::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 0.4rem;
+    width: 100vw;
+    display: block;
+    background-color: rgb(40, 20, 117);
+  }
   #header a {
     display: flex;
     align-items: center;
@@ -1019,6 +1022,9 @@ body .hidden {
     font-size: 1.1rem;
     text-align: center;
     color: #ffffff;
+  }
+  main {
+    overflow: hidden;
   }
   main .section__inner {
     margin: 0 auto;
@@ -1047,6 +1053,9 @@ body .hidden {
   }
   main section#top .date {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     left: 50%;
     bottom: -3.15rem;
     transform: translate3d(-50%, 2rem, 0);
@@ -1063,6 +1072,10 @@ body .hidden {
   }
   main section#top .date.active {
     transform: translate3d(-50%, 0, 0);
+  }
+  main section#top .date img {
+    height: 2.83066rem;
+    width: auto;
   }
   main section#concept {
     padding: 10rem 0 22rem;
@@ -1092,14 +1105,13 @@ body .hidden {
     color: #ffffff;
     text-align: center;
   }
+  main section#concept .wrapper .content {
+    width: 47%;
+  }
   main section#concept .wrapper .content h3 {
     position: relative;
     padding-bottom: 4rem;
     margin-bottom: 3.5rem;
-    font-size: 54px;
-    font-size: 5.4rem;
-    letter-spacing: 0.1em;
-    color: rgb(40, 20, 117);
     overflow: hidden;
   }
   main section#concept .wrapper .content h3.active::after {
@@ -1125,7 +1137,7 @@ body .hidden {
     line-height: 2.4666666667;
   }
   main section#concept .wrapper .img {
-    width: 45.42279rem;
+    width: 42.0581388889%;
   }
   main section#more {
     padding: 22rem 0 10rem;
@@ -1136,38 +1148,6 @@ body .hidden {
     left: 50%;
     width: 100vw;
     transform: translate3d(-50%, 0, 0);
-  }
-  main section#more .slider .marquee {
-    display: flex;
-    white-space: nowrap;
-    overflow: hidden;
-    gap: 2rem;
-    will-change: transform, top;
-  }
-  main section#more .slider .marquee-inner {
-    display: flex;
-    white-space: nowrap;
-    height: 24rem;
-    animation: marquee 30s linear infinite;
-  }
-  main section#more .slider .marquee-inner picture {
-    margin-right: 2rem;
-  }
-  main section#more .slider .marquee-inner picture:last-child {
-    margin-right: 0;
-  }
-  main section#more .slider .marquee-inner img {
-    height: 100%;
-    width: auto;
-    max-width: initial;
-  }
-  @keyframes marquee {
-    0% {
-      translate: 0;
-    }
-    100% {
-      translate: calc(-100% - 2rem);
-    }
   }
   main section#more .more {
     text-align: center;
@@ -1182,8 +1162,9 @@ body .hidden {
   main section#more .more .en {
     padding-bottom: 3rem;
     margin-bottom: 2.5rem;
-    font-size: 30px;
-    font-size: 3rem;
+  }
+  main section#more .more .en img {
+    width: 43rem;
   }
   main section#more .more .en::after {
     position: absolute;

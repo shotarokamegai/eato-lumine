@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Input your ID and Password."
+AuthUserFile /home/classdesign-dev/www/lumine/eato-lumine/.htpasswd
+require valid-user

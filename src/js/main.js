@@ -1,3 +1,4 @@
+import _ from './utils/Util';
 import * as THREE from 'three';
 import Scroll from './utils/Scroll';
 // import frag from "./../../assets/shader/main.frag?raw";
@@ -5,8 +6,11 @@ import Scroll from './utils/Scroll';
 
 class main {
   constructor() {
-    this.width = window.innerWidth;
-    this.height = window.innerWidth;
+    this.pageSize = _.getPageSize();
+    this.width = this.pageSize.ww;
+    this.height = this.pageSize.wh;
+    // this.width = window.innerWidth;
+    // this.height = window.innerWidth;
     this.header = document.getElementById('header');
     this.toTop = document.getElementById('to-top');
     this.top = document.getElementById('top');
@@ -14,6 +18,7 @@ class main {
     this.menu = document.getElementById('menu');
     this.footer = document.getElementById('footer');
     this.qa = document.getElementsByClassName('q');
+    this.swiperContainer = document.getElementsByClassName('swiper-container');
     this.qaFaq = document.getElementsByClassName('qa-faq');
     this.scrollTrigger = document.getElementsByClassName('scroll-trigger');
     this.menuTrigger = document.getElementsByClassName('menu-trigger');
@@ -118,11 +123,56 @@ class main {
     }
   }
 
+  initSwiper() {
+    for (let i = 0; i < this.swiperContainer.length; i++) {
+      let thisSwiper = this.swiperContainer[i];
+      let space = 20;
+      let slides = 2.5;
+      let speed = 700;
+      let loop = true;
+      let  initialSlide = 0;
+      let autoplay = {
+          delay: 3000,
+          // pauseOnMouseEnter: true,
+          disableOnInteraction: false,
+        };
+      if (thisSwiper.classList.contains('marquee-slider')) {
+        speed = 8000;
+        slides = 3.5;
+        autoplay = {
+          delay: 0,
+          // pauseOnMouseEnter: true,
+          disableOnInteraction: false,
+        };
+        if (this.width < 750) {
+          slides = 1.5;
+          space = this.width * .04;
+        } else {
+        }
+      }
+      new Swiper(thisSwiper, {
+        // Optional parameters
+        // direction: 'vertical',
+        speed: speed,
+        initialSlide: initialSlide,
+        loop: loop,
+        autoplay: autoplay,
+        slidesPerView: slides,
+        spaceBetween: space,
+        on: {
+          init: () => {
+            ScrollTrigger.refresh();
+          },
+        },
+      });
+    }
+  }
 
   init() {
     this.resizeEvent();
     window.scrollTo(0, 0);
     document.body.classList.add('loaded');
+    this.initSwiper();
     setTimeout(() => {
       this.logo.setAttribute('src', './assets/img/logo.gif');
       this.logo.classList.add('visible');
@@ -133,7 +183,6 @@ class main {
     let vh = window.innerHeight * 0.01;
     // カスタム変数--vhの値をドキュメントのルートに設定
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    ScrollTrigger.refresh();
     this.detectHeight();
   }
   scrollAnimation() {

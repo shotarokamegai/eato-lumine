@@ -67,6 +67,11 @@ body {
 }
 
 @media screen and (max-width: 749px) {
+  .marquee-slider {
+    .swiper-wrapper {
+      transition-timing-function: linear;
+    }
+  }
   .show {
     opacity: 0;
     // transform: translate3d(0, vw(10), 0);
@@ -141,6 +146,16 @@ body {
     width: vw(192);
     background-color: $navy;
     z-index: 10;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      height: vw(6);
+      width: 100vw;
+      display: block;
+      background-color: $navy;
+    }
     a {
       @include fitcenter();
       @include center();
@@ -162,6 +177,7 @@ body {
     }
   }
   main {
+    overflow: hidden;
     .section__inner {
       margin: 0 auto;
       width: vw(600);
@@ -184,20 +200,22 @@ body {
         }
         .date {
           position: absolute;
+          @include fitcenter();
           left: 50%;
           bottom: vw(-37.5);
           transform: translate3d(-50%, vw(20), 0);
           height: vw(75);
           line-height: vw(75);
           width: vw(600);
-          text-align: center;
-          @include fontvw(45.5);
-          @include tracking(80);
           border: vw(2.5) solid $navy;
           border-radius: vw(37);
           background-color: $white;
           &.active {
           transform: translate3d(-50%, 0, 0);
+          }
+          img {
+            height: vw(33.9668); 
+            width: auto;
           }
         }
       }
@@ -205,7 +223,7 @@ body {
         padding: vw(140) 0 vw(270);
         background-color: $lightNavy;
         background-image: url(./../../assets/img/stripe.svg);
-        background-size: 100%;
+        background-size: 200%;
         background-repeat: repeat;
         .concept-box {
           padding: vw(100) 0;
@@ -213,7 +231,7 @@ body {
           border-radius: vw(80);
           background-color: $navy;
           background-image: url(./../../assets/img/iitoki.svg);
-          background-size: 100%;
+          background-size: 200%;
           background-repeat: repeat;
           h2 {
             margin: 0 auto vw(100);
@@ -238,6 +256,7 @@ body {
               color: $navy;
               white-space: nowrap;
               overflow: hidden;
+              text-align: center;
               &.active {
                 &::after {
                   transform: translate3d(0, 0, 0);
@@ -276,37 +295,6 @@ body {
           left: 50%;
           width: 100vw;
           transform: translate3d(-50%, 0, 0);
-          .marquee {
-            // @include center();
-            // opacity: 0;
-            display: flex;
-            white-space: nowrap;
-            overflow: hidden;
-            gap: vw(30);
-            will-change: transform, top;
-            // transition: opacity 2s $ziwaziwa, transform 2s $slide 2s, top 2s $slide 2s, position 0s 4s;
-          }
-          .marquee-inner {
-            display: flex;
-            white-space: nowrap;
-            height: vw(360);
-            animation: marquee 30s linear infinite;
-            picture {
-              margin-right: vw(30);
-            &:last-child {
-              margin-right: 0;
-            }
-            }
-            img {
-              height: 100%;
-              width: auto;
-              max-width: initial;
-            }
-          }
-          @keyframes marquee {
-            0%   { translate: 0; }
-            100% { translate: calc(-100% - vw(30)); }
-          }
         }
         .more {
           text-align: center;
@@ -324,7 +312,10 @@ body {
           .en {
             padding-bottom: vw(40);
             margin-bottom: vw(35);
-            @include fontvw(41);
+            img {
+              margin: 0 auto;
+              width: vw(575.5547);
+            }
             &::after {
               position: absolute;
               left: 50%;
@@ -350,6 +341,11 @@ body {
 }
 
 @media screen and (min-width: 750px) {
+  .marquee-slider {
+    .swiper-wrapper {
+      transition-timing-function: linear;
+    }
+  }
   .show {
     opacity: 0;
     // transform: translate3d(0, vw(10), 0);
@@ -424,6 +420,16 @@ body {
     width: rem(160);
     background-color: $navy;
     z-index: 10;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      height: rem(4);
+      width: 100vw;
+      display: block;
+      background-color: $navy;
+    }
     a {
       @include fitcenter();
       @include center();
@@ -445,6 +451,7 @@ body {
     }
   }
   main {
+    overflow: hidden;
     .section__inner {
       margin: 0 auto;
       width: 84.375%;
@@ -468,6 +475,7 @@ body {
         }
         .date {
           position: absolute;
+          @include fitcenter();
           left: 50%;
           bottom: rem(-31.5);
           transform: translate3d(-50%, rem(20), 0);
@@ -482,6 +490,10 @@ body {
           background-color: $white;
           &.active {
           transform: translate3d(-50%, 0, 0);
+          }
+          img {
+            height: rem(28.3066);
+            width: auto;
           }
         }
       }
@@ -513,13 +525,11 @@ body {
         }
         .wrapper {
           .content {
+            width: 47%; 
             h3 {
               position: relative;
               padding-bottom: rem(40);
               margin-bottom: rem(35);
-              @include fontsize(54);
-              @include tracking(100);
-              color: $navy;
               overflow: hidden;
               &.active {
                 &::after {
@@ -547,7 +557,7 @@ body {
             }
           }
           .img {
-            width: rem(454.2279);
+            width: 42.058138888888885%;
           }
         }
       }
@@ -559,37 +569,6 @@ body {
           left: 50%;
           width: 100vw;
           transform: translate3d(-50%, 0, 0);
-          .marquee {
-            // @include center();
-            // opacity: 0;
-            display: flex;
-            white-space: nowrap;
-            overflow: hidden;
-            gap: 2rem;
-            will-change: transform, top;
-            // transition: opacity 2s $ziwaziwa, transform 2s $slide 2s, top 2s $slide 2s, position 0s 4s;
-          }
-          .marquee-inner {
-            display: flex;
-            white-space: nowrap;
-            height: rem(240);
-            animation: marquee 30s linear infinite;
-            picture {
-              margin-right: rem(20);
-            &:last-child {
-              margin-right: 0;
-            }
-            }
-            img {
-              height: 100%;
-              width: auto;
-              max-width: initial;
-            }
-          }
-          @keyframes marquee {
-            0%   { translate: 0; }
-            100% { translate: calc(-100% - 2rem); }
-          }
         }
         .more {
           text-align: center;
@@ -607,7 +586,9 @@ body {
           .en {
             padding-bottom: rem(30);
             margin-bottom: rem(25);
-            @include fontsize(30);
+            img {
+              width: rem(430);
+            }
             &::after {
               position: absolute;
               left: 50%;

@@ -680,22 +680,23 @@ body .hidden {
     width: 7.6vw;
   }
   #to-top svg .cls-1 {
-    fill: #ffffff;
-    will-change: fill;
-    transition: fill 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-  }
-  #to-top svg .cls-2 {
     stroke: #ffffff;
     will-change: stroke;
     transition: stroke 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+  #to-top svg .cls-2 {
+    stroke: #ffffff;
+    will-change: stroke, fill;
+    transition: stroke 0.5s cubic-bezier(0.65, 0.05, 0.36, 1), fill 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
   #to-top:active {
     background-color: #ffffff;
   }
   #to-top:active svg .cls-1 {
-    fill: rgb(40, 20, 117);
+    stroke: rgb(40, 20, 117);
   }
   #to-top:active svg .cls-2 {
+    fill: rgb(40, 20, 117);
     stroke: rgb(40, 20, 117);
   }
   #to-top.active {
@@ -955,22 +956,23 @@ body .hidden {
     width: 2.85rem;
   }
   #to-top svg .cls-1 {
-    fill: #ffffff;
-    will-change: fill;
-    transition: fill 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-  }
-  #to-top svg .cls-2 {
     stroke: #ffffff;
     will-change: stroke;
     transition: stroke 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+  #to-top svg .cls-2 {
+    stroke: #ffffff;
+    will-change: stroke, fill;
+    transition: stroke 0.5s cubic-bezier(0.65, 0.05, 0.36, 1), fill 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
   #to-top:hover {
     background-color: #ffffff;
   }
   #to-top:hover svg .cls-1 {
-    fill: rgb(40, 20, 117);
+    stroke: rgb(40, 20, 117);
   }
   #to-top:hover svg .cls-2 {
+    fill: rgb(40, 20, 117);
     stroke: rgb(40, 20, 117);
   }
   #to-top.active {
@@ -1078,7 +1080,7 @@ body .hidden {
     width: auto;
   }
   main section#concept {
-    padding: 10rem 0 22rem;
+    padding: 10rem 0 17.1875vw;
     background-color: #E7E5F0;
     background-image: url(./../../assets/img/stripe.svg);
     background-size: 100%;
@@ -1135,16 +1137,18 @@ body .hidden {
     font-size: 1.5rem;
     letter-spacing: 0.02em;
     line-height: 2.4666666667;
+    font-weight: bold;
   }
   main section#concept .wrapper .img {
     width: 42.0581388889%;
   }
   main section#more {
-    padding: 22rem 0 10rem;
+    padding: 9.375vw 0 10rem;
   }
   main section#more .slider {
-    position: absolute;
-    top: -12rem;
+    position: relative;
+    margin-top: -18.75vw;
+    margin-bottom: 10rem;
     left: 50%;
     width: 100vw;
     transform: translate3d(-50%, 0, 0);
@@ -1183,5 +1187,17 @@ body .hidden {
     font-size: 14px;
     font-size: 1.4rem;
     letter-spacing: 0.02em;
+  }
+}
+@media screen and (min-width: 750px) and (max-width: 1280px) {
+  main section#concept {
+    padding: 10rem 0 22rem;
+  }
+  main section#more {
+    padding: 12rem 0 10rem;
+  }
+  main section#more .slider {
+    margin-top: -24rem;
+    min-width: 128rem;
   }
 }

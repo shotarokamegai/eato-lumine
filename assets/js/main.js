@@ -903,7 +903,7 @@ var main = /*#__PURE__*/function () {
       var addactive = document.getElementsByClassName('addactive');
       var _loop = function _loop() {
         var elm = addactive[i];
-        var start = "top center+=".concat(window.innerHeight / 4);
+        var start = "top center+=".concat(window.innerHeight / 2);
         if (elm.classList.contains('first')) {
           start = "top center+=".concat(window.innerHeight / 2);
         }
@@ -993,7 +993,7 @@ var main = /*#__PURE__*/function () {
           // Optional parameters
           // direction: 'vertical',
           speed: speed,
-          initialSlide: initialSlide,
+          // initialSlide: initialSlide,
           loop: loop,
           autoplay: autoplay,
           slidesPerView: slides,

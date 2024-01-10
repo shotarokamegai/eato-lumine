@@ -66,7 +66,7 @@ class main {
 
     for (let i = 0; i < addactive.length; i++) {
       let elm = addactive[i];
-      let start = `top center+=${window.innerHeight/4}`;
+      let start = `top center+=${window.innerHeight/2}`;
       if (elm.classList.contains('first')) {
         start = `top center+=${window.innerHeight/2}`;
       }
@@ -154,7 +154,7 @@ class main {
         // Optional parameters
         // direction: 'vertical',
         speed: speed,
-        initialSlide: initialSlide,
+        // initialSlide: initialSlide,
         loop: loop,
         autoplay: autoplay,
         slidesPerView: slides,

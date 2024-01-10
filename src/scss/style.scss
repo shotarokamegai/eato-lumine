@@ -112,23 +112,24 @@ body {
     svg {
       width: vw(57);
       .cls-1 {
-        fill: $white;
-        will-change: fill;
-        transition: fill 0.5s $zoom;
-      }
-      .cls-2 {
         stroke: $white;
         will-change: stroke;
         transition: stroke 0.5s $zoom;
+      }
+      .cls-2 {
+        stroke: $white;
+        will-change: stroke, fill;
+        transition: stroke 0.5s $zoom,fill 0.5s $zoom;
       }
     }
     &:active {
       background-color: $white;
       svg  {
       .cls-1 {
-        fill: $navy;
+        stroke: $navy;
       }
       .cls-2 {
+        fill: $navy;
         stroke: $navy;
       }
       }
@@ -386,23 +387,24 @@ body {
     svg {
       width: rem(28.5);
       .cls-1 {
-        fill: $white;
-        will-change: fill;
-        transition: fill 0.5s $zoom;
-      }
-      .cls-2 {
         stroke: $white;
         will-change: stroke;
         transition: stroke 0.5s $zoom;
+      }
+      .cls-2 {
+        stroke: $white;
+        will-change: stroke, fill;
+        transition: stroke 0.5s $zoom,fill 0.5s $zoom;
       }
     }
     &:hover {
       background-color: $white;
       svg  {
       .cls-1 {
-        fill: $navy;
+        stroke: $navy;
       }
       .cls-2 {
+        fill: $navy;
         stroke: $navy;
       }
       }
@@ -498,7 +500,7 @@ body {
         }
       }
       &#concept {
-        padding: rem(100) 0 rem(220);
+        padding: rem(100) 0 17.1875vw;
         background-color: $lightNavy;
         background-image: url(./../../assets/img/stripe.svg);
         background-size: 100%;
@@ -554,6 +556,7 @@ body {
             @include fontsize(15);
             @include tracking(20);
             line-height: (37 / 15);
+            font-weight: bold;
             }
           }
           .img {
@@ -562,10 +565,11 @@ body {
         }
       }
       &#more {
-        padding: rem(220) 0 rem(100);
+        padding: 9.375vw 0 rem(100);
         .slider {
-          position: absolute;
-          top: rem(-120);
+          position: relative;
+          margin-top: calc( -9.375vw * 2 );
+          margin-bottom: rem(100);
           left: 50%;
           width: 100vw;
           transform: translate3d(-50%, 0, 0);
@@ -607,6 +611,24 @@ body {
             @include fontsize(14);
             @include tracking(20);
           }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 750px) and (max-width: 1280px) {
+  main {
+    section {
+      &#concept {
+        padding: rem(100) 0 rem(220);
+      }
+      &#more {
+        padding: rem(120) 0 rem(100);
+        .slider {
+          margin-top: rem(-240);
+          min-width: rem(1280);
         }
       }
     }

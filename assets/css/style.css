@@ -668,10 +668,8 @@ body .hidden {
     height: 13.3333333333vw;
     width: 13.3333333333vw;
     border-radius: 100%;
-    background-color: rgb(40, 20, 117);
     pointer-events: none;
     opacity: 0;
-    border: 0.3333333333vw solid rgb(40, 20, 117);
     will-change: background-color, opacity;
     transition: opacity 0.5s cubic-bezier(0.65, 0.05, 0.36, 1), background-color 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
     z-index: 10;
@@ -857,7 +855,7 @@ body .hidden {
   main section#concept .wrapper .content p {
     font-size: 1.4rem;
     font-size: 3.7333333333vw;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
     line-height: 2;
   }
   main section#concept .wrapper .img {
@@ -944,10 +942,8 @@ body .hidden {
     height: 5rem;
     width: 5rem;
     border-radius: 100%;
-    background-color: rgb(40, 20, 117);
     pointer-events: none;
     opacity: 0;
-    border: 0.2rem solid rgb(40, 20, 117);
     will-change: background-color, opacity;
     transition: opacity 0.5s cubic-bezier(0.65, 0.05, 0.36, 1), background-color 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
     z-index: 10;
@@ -964,9 +960,6 @@ body .hidden {
     stroke: #ffffff;
     will-change: stroke, fill;
     transition: stroke 0.5s cubic-bezier(0.65, 0.05, 0.36, 1), fill 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-  }
-  #to-top:hover {
-    background-color: #ffffff;
   }
   #to-top:hover svg .cls-1 {
     stroke: rgb(40, 20, 117);
@@ -1040,7 +1033,8 @@ body .hidden {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60rem;
+    min-height: 60rem;
+    height: 80vh;
     z-index: 1;
   }
   main section#top .logo {
@@ -1108,7 +1102,7 @@ body .hidden {
     text-align: center;
   }
   main section#concept .wrapper .content {
-    width: 47%;
+    width: 54.5%;
   }
   main section#concept .wrapper .content h3 {
     position: relative;
@@ -1133,14 +1127,13 @@ body .hidden {
     transition: transform cubic-bezier(0.8, 0, 0.2, 1) 1.5s;
   }
   main section#concept .wrapper .content p {
-    font-size: 15px;
-    font-size: 1.5rem;
-    letter-spacing: 0.02em;
-    line-height: 2.4666666667;
-    font-weight: bold;
+    font-size: 16px;
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
+    line-height: 2.125;
   }
   main section#concept .wrapper .img {
-    width: 42.0581388889%;
+    width: 40%;
   }
   main section#more {
     padding: 9.375vw 0 10rem;

@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.31 36.43">
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
   <defs>
     <style>
       .cls-1 {
-        fill: #fff;
-        font-family: FuturaPT-Heavy, 'Futura PT';
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0em;
-      }
-
-      .cls-2 {
         fill: none;
         stroke: #fff;
         stroke-linejoin: round;
         stroke-width: 1.14px;
       }
+
+      .cls-2 {
+        fill: #281575;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
     </style>
   </defs>
   <g id="_レイヤー_1-2" data-name="レイヤー 1">
     <g>
+      <circle class="cls-2" cx="25" cy="25" r="25"/>
       <g>
-        <line class="cls-2" x1="14.65" y1="21.52" x2="14.65" y2=".57"/>
-        <polyline class="cls-2" points=".4 14.82 14.65 .57 28.9 14.82"/>
+        <g>
+          <line class="cls-1" x1="25" y1="29.1" x2="25" y2="8.15"/>
+          <polyline class="cls-1" points="10.75 22.4 25 8.15 39.25 22.4"/>
+        </g>
+        <g>
+          <path class="cls-3" d="M18.1,34.46v6.44h-1.85v-6.44h-1.74v-1.56h5.33v1.56h-1.74Z"/>
+          <path class="cls-3" d="M27.96,33.88c.75.73,1.25,1.79,1.25,3.02,0,1.07-.38,2.16-1.25,3-.74.72-1.75,1.17-3.09,1.17-1.5,0-2.52-.6-3.12-1.17-.77-.72-1.25-1.8-1.25-2.97s.52-2.31,1.24-3.03c.54-.54,1.54-1.18,3.13-1.18,1.25,0,2.29.38,3.09,1.16ZM23.1,35.1c-.35.34-.71.92-.71,1.81,0,.73.24,1.32.73,1.8.52.49,1.09.66,1.72.66.82,0,1.39-.3,1.77-.68.31-.3.7-.86.7-1.79,0-.83-.34-1.44-.7-1.8-.4-.38-1.03-.68-1.76-.68s-1.32.25-1.75.68Z"/>
+          <path class="cls-3" d="M33.47,32.9c.7,0,1.46.1,2.1.66.68.6.78,1.39.78,1.94,0,1.01-.38,1.57-.68,1.88-.64.65-1.47.71-2.04.71h-1.13v2.81h-1.85v-8h2.82ZM32.5,36.58h.66c.25,0,.7-.01,1-.3.17-.17.3-.44.3-.79s-.12-.61-.3-.78c-.28-.26-.67-.3-1.03-.3h-.62v2.17Z"/>
+        </g>
       </g>
-      <text class="cls-1" transform="translate(4.07 33.31)"><tspan x="0" y="0">TOP</tspan></text>
     </g>
   </g>
 </svg>

@@ -281,6 +281,7 @@ body {
               @include fontvw(28);
               @include tracking(50);
               line-height: (56 / 28);
+              white-space: nowrap;
             }
           }
           .img {

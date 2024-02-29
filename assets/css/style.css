@@ -857,6 +857,7 @@ body .hidden {
     font-size: 3.7333333333vw;
     letter-spacing: 0.05em;
     line-height: 2;
+    white-space: nowrap;
   }
   main section#concept .wrapper .img {
     margin-bottom: 13.3333333333vw;

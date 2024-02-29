@@ -615,8 +615,9 @@ body .hidden {
   font-weight: bold;
 }
 
-.futura {
-  font-family: Futura, Trebuchet MS, Arial, sans-serif;
+.shoppori {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 800;
 }
 
 .underline {
@@ -1024,174 +1025,10 @@ body .hidden {
   }
   main .section__inner {
     margin: 0 auto;
-    width: 84.375%;
-    max-width: 108rem;
+    width: 82.03125%;
+    max-width: 105rem;
   }
   main section {
     position: relative;
-  }
-  main section#top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60rem;
-    height: 80vh;
-    z-index: 1;
-  }
-  main section#top .logo {
-    z-index: 1;
-    width: 60rem;
-  }
-  main section#top .logo img {
-    visibility: hidden;
-  }
-  main section#top .logo img.visible {
-    visibility: visible;
-  }
-  main section#top .date {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 50%;
-    bottom: -3.15rem;
-    transform: translate3d(-50%, 2rem, 0);
-    height: 6.3rem;
-    line-height: 6.3rem;
-    width: 50rem;
-    text-align: center;
-    font-size: 38px;
-    font-size: 3.8rem;
-    letter-spacing: 0.08em;
-    border: 0.2rem solid rgb(40, 20, 117);
-    border-radius: 3.15057rem;
-    background-color: #ffffff;
-  }
-  main section#top .date.active {
-    transform: translate3d(-50%, 0, 0);
-  }
-  main section#top .date img {
-    height: 2.83066rem;
-    width: auto;
-  }
-  main section#concept {
-    padding: 10rem 0 17.1875vw;
-    background-color: #E7E5F0;
-    background-image: url(./../../assets/img/stripe.svg);
-    background-size: 100%;
-    background-repeat: repeat;
-  }
-  main section#concept .concept-box {
-    padding: 10rem 0;
-    margin-bottom: 10rem;
-    border-radius: 8rem;
-    background-color: rgb(40, 20, 117);
-    background-image: url(./../../assets/img/iitoki.svg);
-    background-size: 100%;
-    background-repeat: repeat;
-  }
-  main section#concept .concept-box h2 {
-    margin: 0 auto 6rem;
-    width: 64.84033rem;
-  }
-  main section#concept .concept-box p {
-    font-size: 16px;
-    font-size: 1.6rem;
-    letter-spacing: 0.15em;
-    line-height: 2.125;
-    color: #ffffff;
-    text-align: center;
-  }
-  main section#concept .wrapper .content {
-    width: 54.5%;
-  }
-  main section#concept .wrapper .content h3 {
-    position: relative;
-    padding-bottom: 4rem;
-    margin-bottom: 3.5rem;
-    overflow: hidden;
-  }
-  main section#concept .wrapper .content h3.active::after {
-    transform: translate3d(0, 0, 0);
-  }
-  main section#concept .wrapper .content h3::after {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: block;
-    content: "";
-    height: 0.2rem;
-    width: 100%;
-    transform: translate3d(-102%, 0, 0);
-    will-change: transform;
-    background-color: rgb(40, 20, 117);
-    transition: transform cubic-bezier(0.8, 0, 0.2, 1) 1.5s;
-  }
-  main section#concept .wrapper .content p {
-    font-size: 16px;
-    font-size: 1.6rem;
-    letter-spacing: 0.1em;
-    line-height: 2.125;
-  }
-  main section#concept .wrapper .img {
-    width: 40%;
-  }
-  main section#more {
-    padding: 9.375vw 0 10rem;
-  }
-  main section#more .slider {
-    position: relative;
-    margin-top: -18.75vw;
-    margin-bottom: 10rem;
-    left: 50%;
-    width: 100vw;
-    transform: translate3d(-50%, 0, 0);
-  }
-  main section#more .more {
-    text-align: center;
-  }
-  main section#more .more.active .en::after {
-    width: 100%;
-  }
-  main section#more .more p {
-    position: relative;
-    display: inline-block;
-  }
-  main section#more .more .en {
-    padding-bottom: 3rem;
-    margin-bottom: 2.5rem;
-  }
-  main section#more .more .en img {
-    width: 43rem;
-  }
-  main section#more .more .en::after {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    display: block;
-    content: "";
-    height: 0.2rem;
-    width: 0%;
-    transform: translate3d(-50%, 0, 0);
-    will-change: width;
-    background-color: rgb(40, 20, 117);
-    transition: width cubic-bezier(0.8, 0, 0.2, 1) 1.5s;
-  }
-  main section#more .more .ja {
-    font-size: 14px;
-    font-size: 1.4rem;
-    letter-spacing: 0.02em;
-  }
-}
-@media screen and (min-width: 750px) and (max-width: 1280px) {
-  main section#concept {
-    padding: 10rem 0 22rem;
-  }
-  main section#more {
-    padding: 12rem 0 10rem;
-  }
-  main section#more .slider {
-    margin-top: -24rem;
-    min-width: 128rem;
   }
 }

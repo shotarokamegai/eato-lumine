@@ -886,6 +886,21 @@ var main = /*#__PURE__*/function () {
     };
   }
   _createClass(main, [{
+    key: "triggerMenu",
+    value: function triggerMenu() {
+      if (this.menu.classList.contains('active')) {
+        this.menu.classList.remove('active');
+        for (var i = 0; i < this.menuTrigger.length; i++) {
+          this.menuTrigger[i].classList.remove('active');
+        }
+      } else {
+        this.menu.classList.add('active');
+        for (var _i3 = 0; _i3 < this.menuTrigger.length; _i3++) {
+          this.menuTrigger[_i3].classList.add('active');
+        }
+      }
+    }
+  }, {
     key: "detectHeight",
     value: function detectHeight() {
       for (var i = 0; i < this.qaFaq.length; i++) {

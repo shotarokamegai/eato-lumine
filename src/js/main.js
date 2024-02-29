@@ -50,6 +50,20 @@ class main {
     }
   }
 
+  triggerMenu() {
+    if (this.menu.classList.contains('active')) {
+      this.menu.classList.remove('active');
+      for (let i = 0; i < this.menuTrigger.length; i++) {
+        this.menuTrigger[i].classList.remove('active');
+      }
+    } else {
+      this.menu.classList.add('active');
+      for (let i = 0; i < this.menuTrigger.length; i++) {
+        this.menuTrigger[i].classList.add('active');
+      }
+    }
+  }
+
   detectHeight() {
     for (let i = 0; i < this.qaFaq.length; i++) {
       let faq = this.qaFaq[i];

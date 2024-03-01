@@ -147,18 +147,16 @@ ul {
     @include fitcenter();
     right: vw(50);
     bottom: vw(150);
-    height: vw(100);
-    width: vw(100);
     border-radius: 100%;
-    // background-color: $navy;
     pointer-events: none;
     opacity: 0;
-    // border: vw(2.5) solid $navy;
     will-change: background-color, opacity;
     transition: opacity 0.5s $zoom, background-color 0.5s $zoom;
     z-index: 10;
     svg {
-      width: vw(57);
+      display: block;
+      margin: 0 auto;
+      width: vw(63.6396);
       .cls-1 {
         stroke: $white;
         will-change: stroke;
@@ -170,16 +168,19 @@ ul {
         transition: stroke 0.5s $zoom,fill 0.5s $zoom;
       }
     }
+    p {
+      margin-top: vw(20);
+      @include fontvw(30);
+    }
     &:active {
-      background-color: $white;
       svg  {
-      .cls-1 {
-        stroke: $navy;
-      }
-      .cls-2 {
-        fill: $navy;
-        stroke: $navy;
-      }
+        .cls-1 {
+          stroke: $navy;
+        }
+        .cls-2 {
+          fill: $navy;
+          stroke: $navy;
+        }
       }
     }
     &.active {
@@ -191,36 +192,187 @@ ul {
     position: fixed;
     top: 0;
     left:0;
-    height: vw(84);
-    width: vw(192);
-    background-color: $navy;
+    width: 100%;
     z-index: 10;
-    &::before {
+    h1 {
       position: absolute;
+      @include fitcenter();
       top: 0;
       left: 0;
-      content: '';
-      height: vw(6);
-      width: 100vw;
-      display: block;
+      height: vw(70);
+      width: vw(120);
       background-color: $navy;
+      img {
+        width: vw(95.4514);
+      }
     }
-    a {
+    .menu-trigger {
+      position: absolute;
       @include fitcenter();
-      @include center();
+      top: 0;
+      right: 0;
+      height: vw(70);
+      width: vw(70);
+      background-color: $navy;
+      z-index: 101;
+      &.active {
+        div p {
+          &:nth-child(1) {
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0) rotate(30deg);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0) rotate(-30deg);
+          }
+        }
+      }
+      div {
+        position: relative;
+        height: vw(22);
+        width: vw(40);
+        p {
+          position: absolute;
+          height: vw(2);
+          width: 100%;
+          left: 50%;
+          background-color: $white;
+          transform: translate3d(-50%, 0, 0);
+          transition: all $zoom .2s;
+          &:nth-child(1) {
+            top: 0;
+          }
+          &:nth-child(2) {
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+          }
+          &:nth-child(3) {
+            top: calc( 100% - vw(2) );
+          }
+        }
+      }
+    }
+    #menu {
+      position: fixed;
+      top: 0;
+      left: 0;
       height: 100%;
       width: 100%;
-      img {
-        width: vw(120);
+      background-color: $navy;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      will-change: opacity;
+      transition: opacity $zoom .5s, visibility 0s .5s;
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity $zoom .5s, visibility 0s;
+        .logo, .sns {
+          opacity: 1;
+          transform: translate3d(-50%, 0, 0) !important;
+        }
+        ul {
+          .jump {
+            .word {
+              .char {
+                transform: translate3d(0, 0, 0);
+              }
+            }
+          }
+          li {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .logo, .sns {
+        opacity: 0;
+        transform: translate3d(-50%, vw(20), 0) !important;
+        transition: transform $slow 3s .5s, opacity $slow 3s .5s;
+      }
+      .logo {
+        position: absolute;
+        top: rem(50);
+        left: 50%;
+        width: rem(190.9028);
+        transform: translate3d(-50%, 0, 0)
+      }
+      ul {
+        @include fitcenter();
+        @include center();
+        width: 100%;
+        li {
+          position: relative;
+          margin-right: rem(100);
+          @include fontsize(22.5);
+          color: $white;
+          .word {
+            .char {
+              @for $i from 1 through 20 {
+                &:nth-child(#{$i}) {
+                  will-change: transform;
+                  transition: transform 1.5s $slide
+                    #{($i - 1) * 0.05}s;
+                }
+              }
+            }
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+          &::after {
+            position: absolute;
+            left: 50%;
+            bottom: rem(-10);
+            transform: translate3d(-50%, 0, 0);
+            content: '';
+            height: rem(2);
+            width: 0%;
+            background-color: $white;
+            will-change: width;
+            transition: width $zoom 1s;
+          }
+        }
+      }
+      .sns {
+        position: absolute;
+        left: 50%;
+        bottom: rem(50);
+        transform: translate3d(-50%, 0, 0);
+        .title {
+          margin-bottom: rem(15);
+          @include fontsize(15);
+          color: $white;
+          text-align: center;
+        }
+        a {
+          margin: 0 auto;
+          width: rem(35);
+          display: block;
+        }
       }
     }
   }
   #footer {
-    @include fitcenter();
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 vw(30);
     height: vw(100);
+    box-sizing: border-box;
     background-color: $navy;
+    .logo {
+      width: vw(149.5959);
+    }
     p {
-      @include fontvw(22); 
+      @include fontvw(20); 
       text-align: center;
       color: $white;
     }
@@ -229,160 +381,336 @@ ul {
     overflow: hidden;
     .section__inner {
       margin: 0 auto;
-      width: vw(600);
+      width: vw(650);
+    }
+    .section-title {
+      font-family: $Shippori;
+      &.active {
+        .under {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+      .under {
+        position: relative;
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          display: block;
+          content: '';
+          height: vw(4);
+          width: 0%;
+          background-color: $navy;
+          transform: translate3d(-50%, 0, 0);
+          will-change: width;
+          transition: width $zoom 1s;
+        }
+      }
+    }
+    .note {
+      @include fontvw(20);
+      line-height: (34.82 / 20)
     }
     section {
       position: relative;
       &#top {
-        @include fitcenter();
-        height: vw(750); 
-        z-index: 1;
-        .logo {
-          z-index: 1;
-          width: vw(600);
-          img {
-          visibility: hidden;
-          &.visible {
-            visibility: visible;
-          }
-          }
-        }
-        .date {
-          position: absolute;
-          @include fitcenter();
-          left: 50%;
-          bottom: vw(-37.5);
-          transform: translate3d(-50%, vw(20), 0);
-          height: vw(75);
-          line-height: vw(75);
-          width: vw(600);
-          border: vw(2.5) solid $navy;
-          border-radius: vw(37);
-          background-color: $white;
-          &.active {
-          transform: translate3d(-50%, 0, 0);
-          }
-          img {
-            height: vw(33.9668); 
-            width: auto;
+        // height: rem(600); 
+        .wrapper {
+          position: relative;
+          height: 100%;
+          .keyv {
+            // @include center();
+            // height: 100%;
+            // width: 100%;
+            // opacity: 0;
+            // transition: transform $zoom 1s, opacity $zoom 1s;
+            // &.active {
+            //   opacity: 1;
+            // }
+            img {
+              object-fit: cover;
+            }
           }
         }
       }
-      &#concept {
-        padding: vw(140) 0 vw(270);
-        background-color: $lightNavy;
-        background-image: url(./../../assets/img/stripe.svg);
-        background-size: 200%;
-        background-repeat: repeat;
-        .concept-box {
-          padding: vw(100) 0;
-          margin-bottom: vw(100);
-          border-radius: vw(80);
-          background-color: $navy;
-          background-image: url(./../../assets/img/iitoki.svg);
-          background-size: 200%;
-          background-repeat: repeat;
-          h2 {
-            margin: 0 auto vw(100);
-            width: vw(421.2295);
+      &#about {
+        padding: vw(75) 0;
+        background-color: $lightGray;
+        .section {
+          &-title {
+            margin-bottom: vw(35);
+            @include fontvw(53.39);
+            color: $navy;
           }
-          p {
-            @include fontvw(28);
-            @include tracking(150);
-            line-height: (56 / 28);
-            color: $white;
+          &-text {
+            @include fontvw(25.81);
+            line-height: (30.97 / 25.81);
+            color: $navy;
+          }
+        }
+      }
+      &#shop-list {
+        padding: vw(75) 0;
+        .section {
+          &-title {
+            margin-bottom: vw(50);
+            @include fontvw(45);
             text-align: center;
+            .text {
+              padding-bottom: vw(25);
+              margin-bottom: vw(15);
+              display: inline-block;
+            }
+            .img-wrapper {
+              @include fitcenter();
+            }
+            .img {
+              img {
+                height: vw(100);
+                width: auto;
+              }
+            }
           }
         }
         .wrapper {
-          .content {
-            h3 {
-              position: relative;
-              padding-bottom: vw(45);
-              margin-bottom: vw(100);
-              @include fontvw(58);
-              @include tracking(100);
-              color: $navy;
-              white-space: nowrap;
-              overflow: hidden;
-              text-align: center;
-              &.active {
-                &::after {
-                  transform: translate3d(0, 0, 0);
-                }
+          position: relative;
+          left: 50%;
+          transform: translate3d(-50%, 0, 0);
+          width: vw(700);
+          flex-wrap: wrap;
+          .shop {
+            margin-right: vw(40);
+            margin-bottom: vw(40);
+            width: vw(330);
+            &:nth-child(2n) {
+              margin-right: 0;
+            }
+            &-img {
+              margin-bottom: vw(20); 
+              img {
+                border-radius: vw(17.6471); 
               }
-              &::after {
-                position: absolute;
-                left: 0;
-                bottom: 0;
+            }
+            &-name {
+              span {
                 display: block;
-                content: '';
-                height: vw(2.5);
-                width: 100%;
-                transform: translate3d(-102%, 0, 0);
-                will-change: transform;
-                background-color: $navy;
-                transition: transform $slide 1.5s;
+              }
+              .en {
+                margin-bottom: vw(10); 
+                @include fontvw(24.02);
+              }
+              .ja {
+                @include fontvw(18.87);
               }
             }
-            p {
-              @include fontvw(28);
-              @include tracking(50);
-              line-height: (56 / 28);
-              white-space: nowrap;
-            }
-          }
-          .img {
-            margin-bottom: vw(100);
           }
         }
       }
-      &#more {
-        padding: vw(330) 0 vw(200);
-        .slider {
-          position: absolute;
-          top: vw(-180);
-          left: 50%;
-          width: 100vw;
-          transform: translate3d(-50%, 0, 0);
+      &#store-map {
+        padding: vw(75) 0;
+        background-color: $lightGray;
+        .section {
+          &-title {
+            margin-bottom: vw(75);
+            @include fontvw(45);
+            text-align: center;
+            .text {
+              padding-bottom: vw(25);
+              display: inline-block;
+            }
+          }
         }
-        .more {
+        .title {
+          margin-bottom: vw(80);
+          height: vw(65);
+          line-height: vw(65);
+          @include fontvw(30);
+          color: $navy;
+          background-color: $orange;
           text-align: center;
+        }
+        .map-wrapper {
+          margin-bottom: vw(35);
+          .box {
+            margin-bottom: vw(50);
+            &:last-child {
+              margin-bottom: 0;
+            }
             &.active {
-              .en {
+              .box-title {
+                &::after {
+                flex-grow: 1;
+                }
+              }
+            }
+            &-title {
+              margin-bottom: vw(25); 
+              @include fontvw(30);
               &::after {
-                width: 100%;
-              }
+                display: block;
+                margin-left: vw(10);
+                content: "";
+                flex-grow: 0;
+                // width: 0%;
+                border-bottom: rem(1) solid $navy;
+                will-change: flex-grow;
+                transition: flex-grow $zoom 1s;
               }
             }
-          p {
+            // &:nth-child(1) {
+            //   width: 35.23809523809524%;
+            // }
+            // &:nth-child(2) {
+            //   width: 63.14285714285715%;
+            // }
+          }
+        }
+      }
+      &#store-information {
+        padding: vw(75) 0 vw(100);
+        .section {
+          &-title {
+            margin-bottom: vw(50);
+            @include fontvw(45);
+            text-align: center;
+            .text {
+              // margin: 0 rem(35);
+              padding-bottom: vw(25);
+              display: inline-block;
+            }
+          }
+        }
+        .title-wrapper {
+          margin-bottom: vw(30);
+          .title {
+            margin-bottom: vw(10);
+            padding: vw(30) 0;
+            @include fitcenter();
+            @include fontvw(30);
+            color: $white;
+            background-color: $navy;
+            p {
+              @include fitcenter();
+            }
+            .small {
+              margin-bottom: vw(10);
+              @include fontvw(10);
+              &.yugothic {
+                margin-top: vw(10);
+                @include fontvw(10);
+              }
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .card-wrapper {
+          margin: vw(50) auto;
+          .box {
+            margin-bottom: vw(50);
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .faq {
+          &-title {
             position: relative;
-            display: inline-block;
-          }
-          .en {
-            padding-bottom: vw(40);
-            margin-bottom: vw(35);
+            @include fitcenter();
+            @include fontvw(45);
+            height: vw(97.5);
+            border: rem(1) solid $navy;
+            // cursor: pointer;
+            &.open {
+              img {
+                transform: translate3d(0, -50%, 0) rotateX(180deg);
+              }
+            }
             img {
-              margin: 0 auto;
-              width: vw(575.5547);
-            }
-            &::after {
               position: absolute;
-              left: 50%;
-              bottom: 0;
-              display: block;
-              content: '';
-              height: vw(2.5);
-              width: 0%;
-              transform: translate3d(-50%, 0, 0);
-              will-change: width;
-              background-color: $navy;
-              transition: width $slide 1.5s;
+              top: 50%;
+              right: vw(40);
+              width: vw(63.6396);
+              transform: translate3d(0, -50%, 0);
+              transition: transform 0.5s $zoom;
             }
           }
-          .ja {
-            @include fontvw(24);
-            @include tracking(20);
+          &-wrapper {
+            height: 0;
+            overflow: hidden;
+            will-change: height;
+            transition: height .5s $ziwaziwa;
+            &__inner {
+              padding-top: rem(50); 
+              .box {
+                margin-bottom: rem(100);
+                &-title {
+                  @include fontsize(25);
+                }
+                &-text {
+                  margin-top: rem(50);
+                  @include fontsize(20);
+                  .bold {
+                    margin-bottom: rem(15);
+                    display: block;
+                  }
+                  .small {
+                    @include fontsize(14);
+                  }
+                }
+                .note {
+                  margin-top: rem(20);
+                }
+                .line-wrapper {
+                  margin-top: rem(20);
+                  border-top: rem(1) solid $navy;
+                  border-bottom: rem(1) solid $navy;
+                  .line {
+                    border-bottom: rem(1) solid $navy;
+                    &:last-child {
+                      border-bottom: 0;
+                    }
+                    div {
+                      box-sizing: border-box;
+                      &:nth-child(1) {
+                        width: 20.952380952380953%;
+                      }
+                      &:nth-child(2) {
+                        padding: rem(30) 0 rem(30) rem(30);
+                        border-left: rem(1) solid $navy;
+                        width: calc( 100% - 20.952380952380953% );
+                      }
+                      p, ul {
+                        @include fontsize(14);
+                        @include tracking(50);
+                        line-height: (21 / 14);
+                      }
+                      p {
+                      }
+                    }
+                  }
+                }
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
+              .sns {
+                margin-top: vw(100);
+                .title {
+                  margin-bottom: vw(40);
+                  @include fontvw(45);
+                  text-align: center;
+                }
+                a {
+                  display: block;
+                  margin: 0 auto;
+                  width: rem(50);
+                }
+              }
+            }
           }
         }
       }
@@ -528,7 +856,7 @@ ul {
             transform: translate3d(-50%, -50%, 0);
           }
           &:nth-child(3) {
-            top: calc( 100% - rem(1) );
+            top: calc( 100% - rem(2) );
           }
         }
       }

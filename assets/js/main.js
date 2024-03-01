@@ -859,24 +859,24 @@ var main = /*#__PURE__*/function () {
     this.logo = document.getElementById('logo');
     this.menu = document.getElementById('menu');
     this.footer = document.getElementById('footer');
-    this.qa = document.getElementsByClassName('q');
+    this.faqTitle = document.getElementsByClassName('faq-title')[0];
+    this.faqWrapper = document.getElementsByClassName('faq-wrapper')[0];
+    this.faqWrapperInner = document.getElementsByClassName('faq-wrapper__inner')[0];
     this.swiperContainer = document.getElementsByClassName('swiper-container');
-    this.qaFaq = document.getElementsByClassName('qa-faq');
     this.scrollTrigger = document.getElementsByClassName('scroll-trigger');
     this.menuTrigger = document.getElementsByClassName('menu-trigger');
     this.scroller = document.body;
     this.scrollingElement = 'scrollingElement' in document ? document.scrollingElement : window.navigator.userAgent.indexOf('WebKit') != -1 ? body : document.documentElement || body.parentNode;
     gsap.registerPlugin(ScrollTrigger);
+    Splitting();
     this.init();
     this.animationScroll();
+    this.faqTitle.addEventListener('click', this.triggerQa.bind(this));
     for (var i = 0; i < this.menuTrigger.length; i++) {
       this.menuTrigger[i].addEventListener('click', this.triggerMenu.bind(this));
     }
-    for (var _i = 0; _i < this.qa.length; _i++) {
-      this.qa[_i].addEventListener('click', this.triggerQa.bind(this));
-    }
-    for (var _i2 = 0; _i2 < this.scrollTrigger.length; _i2++) {
-      this.scrollTrigger[_i2].addEventListener('click', this.toScroll.bind(this));
+    for (var _i = 0; _i < this.scrollTrigger.length; _i++) {
+      this.scrollTrigger[_i].addEventListener('click', this.toScroll.bind(this));
     }
     window.onresize = function () {
       _this.resizeEvent();
@@ -895,21 +895,16 @@ var main = /*#__PURE__*/function () {
         }
       } else {
         this.menu.classList.add('active');
-        for (var _i3 = 0; _i3 < this.menuTrigger.length; _i3++) {
-          this.menuTrigger[_i3].classList.add('active');
+        for (var _i2 = 0; _i2 < this.menuTrigger.length; _i2++) {
+          this.menuTrigger[_i2].classList.add('active');
         }
       }
     }
   }, {
     key: "detectHeight",
     value: function detectHeight() {
-      for (var i = 0; i < this.qaFaq.length; i++) {
-        var faq = this.qaFaq[i];
-        var a = faq.getElementsByClassName('a')[0];
-        var aInner = faq.getElementsByClassName('a__inner')[0];
-        if (faq.classList.contains('active')) {
-          a.setAttribute('style', "height: ".concat(aInner.clientHeight, "px"));
-        }
+      if (this.faqTitle.classList.contains('open')) {
+        this.faqWrapper.setAttribute('style', "height: ".concat(this.faqWrapperInner.clientHeight, "px"));
       }
     }
   }, {
@@ -945,21 +940,13 @@ var main = /*#__PURE__*/function () {
   }, {
     key: "triggerQa",
     value: function triggerQa(e) {
-      var elm;
-      if (e instanceof HTMLElement) {
-        elm = e;
+      var elm = e.currentTarget;
+      if (elm.classList.contains('open')) {
+        elm.classList.remove('open');
+        this.faqWrapper.setAttribute('style', "height: 0");
       } else {
-        elm = e.currentTarget;
-      }
-      var parent = elm.parentNode;
-      var a = parent.getElementsByClassName('a')[0];
-      var aInner = a.getElementsByClassName('a__inner')[0];
-      if (parent.classList.contains('active')) {
-        parent.classList.remove('active');
-        a.setAttribute('style', "height: 0");
-      } else {
-        parent.classList.add('active');
-        a.setAttribute('style', "height: ".concat(aInner.clientHeight, "px"));
+        elm.classList.add('open');
+        this.faqWrapper.setAttribute('style', "height: ".concat(this.faqWrapperInner.clientHeight, "px"));
       }
     }
   }, {
@@ -1024,15 +1011,14 @@ var main = /*#__PURE__*/function () {
   }, {
     key: "init",
     value: function init() {
-      var _this2 = this;
       this.resizeEvent();
       window.scrollTo(0, 0);
       document.body.classList.add('loaded');
       this.initSwiper();
-      setTimeout(function () {
-        _this2.logo.setAttribute('src', './assets/img/logo.gif');
-        _this2.logo.classList.add('visible');
-      }, 500);
+      // setTimeout(() => {
+      //   this.logo.setAttribute('src', './assets/img/logo.gif');
+      //   this.logo.classList.add('visible');
+      // }, 500);
     }
   }, {
     key: "resizeEvent",

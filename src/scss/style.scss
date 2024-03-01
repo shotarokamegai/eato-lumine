@@ -48,6 +48,32 @@ body {
     visibility: hidden;
   }
 }
+.jump {
+  &.active {
+    .word {
+      .char {
+        transform: translate3d(0, 0, 0);
+        @for $i from 1 through 20 {
+          &:nth-child(#{$i}) {
+            will-change: transform;
+            transition: transform 1.5s $slide
+              #{($i - 1) * 0.05}s;
+          }
+        }
+      }
+    }
+  }
+  .word {
+    display: inline-block;
+    line-height: 1;
+    overflow: hidden;
+  }
+  .char {
+    position: relative;
+    display: inline-block;
+    transform: translate3d(0, 102%, 0);
+  }
+} 
 .bold {
   font-weight: bold;
 }
@@ -372,9 +398,7 @@ ul {
   }
   .show {
     opacity: 0;
-    // transform: translate3d(0, vw(10), 0);
     transform: translate3d(0, rem(20), 0);
-    // transition: transform ease 1s, opacity ease 1s;
     transition: transform $slow 3s, opacity $slow 3s;
     &.active {
       opacity: 1;
@@ -466,6 +490,7 @@ ul {
       right: 0;
       height: rem(70);
       width: rem(70);
+      cursor: pointer;
       background-color: $navy;
       z-index: 101;
       &.active {
@@ -524,6 +549,29 @@ ul {
         opacity: 1;
         visibility: visible;
         transition: opacity $zoom .5s, visibility 0s;
+        .logo, .sns {
+          opacity: 1;
+          transform: translate3d(-50%, 0, 0) !important;
+        }
+        ul {
+          .jump {
+            .word {
+              .char {
+                transform: translate3d(0, 0, 0);
+              }
+            }
+          }
+          li {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .logo, .sns {
+        opacity: 0;
+        transform: translate3d(-50%, rem(20), 0) !important;
+        transition: transform $slow 3s .5s, opacity $slow 3s .5s;
       }
       .logo {
         position: absolute;
@@ -541,6 +589,17 @@ ul {
           margin-right: rem(100);
           @include fontsize(22.5);
           color: $white;
+          .word {
+            .char {
+              @for $i from 1 through 20 {
+                &:nth-child(#{$i}) {
+                  will-change: transform;
+                  transition: transform 1.5s $slide
+                    #{($i - 1) * 0.05}s;
+                }
+              }
+            }
+          }
           &:last-child {
             margin-right: 0;
           }
@@ -551,8 +610,10 @@ ul {
             transform: translate3d(-50%, 0, 0);
             content: '';
             height: rem(2);
-            width: 100%;
+            width: 0%;
             background-color: $white;
+            will-change: width;
+            transition: width $zoom 1s;
           }
         }
       }
@@ -576,9 +637,18 @@ ul {
     }
   }
   #footer {
-    @include fitcenter();
-    height: rem(50);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 rem(30);
+    height: rem(83);
+    box-sizing: border-box;
     background-color: $navy;
+    .logo {
+      width: rem(100);
+    }
     p {
       @include fontsize(11); 
       text-align: center;
@@ -594,6 +664,13 @@ ul {
     }
     .section-title {
       font-family: $Shippori;
+      &.active {
+        .under {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
       .under {
         position: relative;
         &::after {
@@ -603,9 +680,11 @@ ul {
           display: block;
           content: '';
           height: rem(4);
-          width: 100%;
+          width: 0%;
           background-color: $navy;
           transform: translate3d(-50%, 0, 0);
+          will-change: width;
+          transition: width $zoom 1s;
         }
       }
     }
@@ -658,7 +737,7 @@ ul {
             margin-bottom: rem(90);
             @include fontsize(45);
             align-items: flex-end;
-            span {
+            .text {
               margin: 0 rem(35);
               padding-bottom: rem(20);
               display: inline-block;
@@ -709,8 +788,7 @@ ul {
             margin-bottom: rem(75);
             @include fontsize(45);
             align-items: flex-end;
-            span {
-              margin: 0 rem(35);
+            .text {
               padding-bottom: rem(20);
               display: inline-block;
             }
@@ -728,6 +806,13 @@ ul {
         .map-wrapper {
           margin-bottom: rem(15);
           .box {
+            &.active {
+              .box-title {
+                &::after {
+                flex-grow: 1;
+                }
+              }
+            }
             &-title {
               margin-bottom: rem(20); 
               @include fontsize(15);
@@ -735,8 +820,11 @@ ul {
                 display: block;
                 margin-left: rem(10);
                 content: "";
-                flex-grow: 1;
+                flex-grow: 0;
+                // width: 0%;
                 border-bottom: rem(1) solid $navy;
+                will-change: flex-grow;
+                transition: flex-grow $zoom 1s;
               }
             }
             &:nth-child(1) {
@@ -755,7 +843,7 @@ ul {
             margin-bottom: rem(75);
             @include fontsize(45);
             align-items: flex-end;
-            span {
+            .text {
               margin: 0 rem(35);
               padding-bottom: rem(20);
               display: inline-block;
@@ -801,17 +889,26 @@ ul {
             @include fontsize(30);
             height: rem(65);
             border: rem(1) solid $navy;
+            cursor: pointer;
+            &.open {
+              img {
+                transform: translate3d(0, -50%, 0) rotateX(180deg);
+              }
+            }
             img {
               position: absolute;
               top: 50%;
               right: rem(30);
               width: rem(40);
               transform: translate3d(0, -50%, 0);
+              transition: transform 0.5s $zoom;
             }
           }
           &-wrapper {
-            // height: 0;
-            // overflow: hidden;
+            height: 0;
+            overflow: hidden;
+            will-change: height;
+            transition: height .5s $ziwaziwa;
             &__inner {
               padding-top: rem(50); 
               .box {

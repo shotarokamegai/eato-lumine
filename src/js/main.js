@@ -17,9 +17,10 @@ class main {
     this.logo = document.getElementById('logo');
     this.menu = document.getElementById('menu');
     this.footer = document.getElementById('footer');
-    this.qa = document.getElementsByClassName('q');
+    this.faqTitle = document.getElementsByClassName('faq-title')[0];
+    this.faqWrapper = document.getElementsByClassName('faq-wrapper')[0];
+    this.faqWrapperInner = document.getElementsByClassName('faq-wrapper__inner')[0];
     this.swiperContainer = document.getElementsByClassName('swiper-container');
-    this.qaFaq = document.getElementsByClassName('qa-faq');
     this.scrollTrigger = document.getElementsByClassName('scroll-trigger');
     this.menuTrigger = document.getElementsByClassName('menu-trigger');
     this.scroller = document.body;
@@ -31,13 +32,12 @@ class main {
           : document.documentElement || body.parentNode;
 
     gsap.registerPlugin(ScrollTrigger);
+    Splitting();
     this.init();
     this.animationScroll();
+    this.faqTitle.addEventListener('click', this.triggerQa.bind(this));
     for (let i = 0; i < this.menuTrigger.length; i++) {
       this.menuTrigger[i].addEventListener('click', this.triggerMenu.bind(this));
-    }
-    for (let i = 0; i < this.qa.length; i++) {
-      this.qa[i].addEventListener('click', this.triggerQa.bind(this));
     }
     for (let i = 0; i < this.scrollTrigger.length; i++) {
       this.scrollTrigger[i].addEventListener('click', this.toScroll.bind(this));
@@ -65,13 +65,8 @@ class main {
   }
 
   detectHeight() {
-    for (let i = 0; i < this.qaFaq.length; i++) {
-      let faq = this.qaFaq[i];
-      let a = faq.getElementsByClassName('a')[0];
-      let aInner = faq.getElementsByClassName('a__inner')[0];
-      if (faq.classList.contains('active')) {
-        a.setAttribute('style', `height: ${aInner.clientHeight}px`);
-      }
+    if (this.faqTitle.classList.contains('open')) {
+      this.faqWrapper.setAttribute('style', `height: ${this.faqWrapperInner.clientHeight}px`);
     }
   }
 
@@ -103,22 +98,13 @@ class main {
   }
 
   triggerQa(e) {
-    let elm;
-    if (e instanceof HTMLElement) {
-      elm = e;
+    let elm = e.currentTarget;
+    if (elm.classList.contains('open')) {
+      elm.classList.remove('open');
+      this.faqWrapper.setAttribute('style', `height: 0`);
     } else {
-      elm = e.currentTarget;
-    }
-    let parent = elm.parentNode;
-    let a = parent.getElementsByClassName('a')[0];
-    let aInner = a.getElementsByClassName('a__inner')[0];
-
-    if (parent.classList.contains('active')) {
-      parent.classList.remove('active');
-      a.setAttribute('style', `height: 0`);
-    } else {
-      parent.classList.add('active');
-      a.setAttribute('style', `height: ${aInner.clientHeight}px`);
+      elm.classList.add('open');
+      this.faqWrapper.setAttribute('style', `height: ${this.faqWrapperInner.clientHeight}px`);
     }
   }
   
@@ -187,10 +173,10 @@ class main {
     window.scrollTo(0, 0);
     document.body.classList.add('loaded');
     this.initSwiper();
-    setTimeout(() => {
-      this.logo.setAttribute('src', './assets/img/logo.gif');
-      this.logo.classList.add('visible');
-    }, 500);
+    // setTimeout(() => {
+    //   this.logo.setAttribute('src', './assets/img/logo.gif');
+    //   this.logo.classList.add('visible');
+    // }, 500);
   }
 
   resizeEvent() {

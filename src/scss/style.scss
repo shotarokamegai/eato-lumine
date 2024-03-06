@@ -309,6 +309,7 @@ ul {
               @include center();
               height: 200%;
               width: auto;
+              max-width: initial;
             }
           }
           .wrapper {
@@ -1141,6 +1142,7 @@ ul {
               @include center();
               height: 200%;
               width: auto;
+              max-width: initial;
             }
           }
           .wrapper {

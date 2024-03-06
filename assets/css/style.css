@@ -938,6 +938,7 @@ ul.dot li::before {
     transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
     height: 200%;
     width: auto;
+    max-width: initial;
   }
   #overlay .inner .box:nth-child(2) .wrapper-content {
     position: relative;
@@ -1823,6 +1824,7 @@ ul.dot li::before {
     transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
     height: 200%;
     width: auto;
+    max-width: initial;
   }
   #overlay .inner .box:nth-child(2) .wrapper-content {
     position: relative;

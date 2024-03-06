@@ -815,6 +815,180 @@ ul.dot li::before {
     pointer-events: initial;
     opacity: 1;
   }
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 101;
+    opacity: 0;
+    overflow: scroll;
+    visibility: hidden;
+    will-change: opacity;
+    transition: opacity cubic-bezier(0.65, 0.05, 0.36, 1) 0.5s, visibility 0s 0.5s;
+  }
+  #overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity cubic-bezier(0.65, 0.05, 0.36, 1) 0.5s, visibility 0s;
+  }
+  #overlay.scene1 {
+    border: 4vw solid #2BAD8D;
+  }
+  #overlay.scene1 .close div {
+    background-color: #2BAD8D;
+  }
+  #overlay.scene1 .limited-title {
+    background-color: #2BAD8D;
+  }
+  #overlay.scene1 .swiper-pagination-bullet {
+    border: 0.1rem solid #2BAD8D;
+  }
+  #overlay.scene1 .swiper-pagination-bullet-active {
+    background-color: #2BAD8D !important;
+  }
+  #overlay.scene2 {
+    border: 4vw solid #F3BF1C;
+  }
+  #overlay.scene2 .close div {
+    background-color: #F3BF1C;
+  }
+  #overlay.scene2 .limited-title {
+    background-color: #F3BF1C;
+  }
+  #overlay.scene3 {
+    border: 4vw solid #281575;
+  }
+  #overlay.scene3 .close div {
+    background-color: #281575;
+  }
+  #overlay.scene3 .limited-title {
+    background-color: #281575;
+  }
+  #overlay .close {
+    position: fixed;
+    top: 8vw;
+    right: 8vw;
+    height: 10vw;
+    width: 10vw;
+    z-index: 2;
+  }
+  #overlay .close div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    width: 0.4vw;
+    height: 120%;
+  }
+  #overlay .close div:nth-child(1) {
+    transform: translate3d(-50%, -50%, 0) rotate(45deg);
+  }
+  #overlay .close div:nth-child(2) {
+    transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+  }
+  #overlay .inner {
+    padding: 22vw 0;
+    width: 80vw;
+    margin: 0 auto;
+  }
+  #overlay .inner .box:nth-child(1) {
+    margin-bottom: 3.3333333333vw;
+  }
+  #overlay .inner .box:nth-child(1) .swiper-container {
+    position: relative;
+    border-radius: 4vw;
+    overflow: hidden;
+    width: 100%;
+  }
+  #overlay .inner .box:nth-child(1) .swiper-pagination {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 4vw auto 0;
+  }
+  #overlay .inner .box:nth-child(1) .swiper-pagination-bullet {
+    margin-right: 4vw;
+    margin-left: 0;
+    height: 4vw;
+    width: 4vw;
+    opacity: 1;
+    background-color: #ffffff;
+  }
+  #overlay .inner .box:nth-child(1) .swiper-pagination-bullet:last-child {
+    margin-right: 0;
+  }
+  #overlay .inner .box:nth-child(2) {
+    color: #000000;
+  }
+  #overlay .inner .box:nth-child(2) .logo {
+    position: relative;
+    height: 16vw;
+    width: 28vw;
+    margin: 0 auto 2vw;
+  }
+  #overlay .inner .box:nth-child(2) .logo img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    height: 200%;
+    width: auto;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper-content {
+    position: relative;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper-content:last-child {
+    padding-bottom: 0;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper .wrapper-content.limited {
+    border-top: 0.1rem solid #000000;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper .wrapper-content.limited .limited-title {
+    position: absolute;
+    top: -4.5333333333vw;
+    right: 0;
+    height: 4.5333333333vw;
+    line-height: 4.5333333333vw;
+    font-size: 1.1rem;
+    font-size: 2.9333333333vw;
+    width: 24vw;
+    text-align: center;
+    color: #ffffff;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper header {
+    margin-bottom: 3.3333333333vw;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper header .name {
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper header .name span {
+    display: block;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper header .name .bold {
+    font-size: 1.5rem;
+    font-size: 4vw;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper header .name .cat {
+    font-size: 1.1rem;
+    font-size: 2.9333333333vw;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper header .tel {
+    font-size: 1.1rem;
+    font-size: 2.9333333333vw;
+  }
+  #overlay .inner .box:nth-child(2) .wrapper .text {
+    font-size: 1.2rem;
+    font-size: 3.2vw;
+    line-height: 1.75;
+  }
   #header {
     position: fixed;
     top: 0;
@@ -1117,7 +1291,21 @@ ul.dot li::before {
     position: relative;
     height: 100%;
   }
+  main section#top .wrapper .keyv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: transform cubic-bezier(0.65, 0.05, 0.36, 1) 1s, opacity cubic-bezier(0.65, 0.05, 0.36, 1) 1s;
+  }
+  main section#top .wrapper .keyv.active {
+    opacity: 1;
+  }
   main section#top .wrapper .keyv img {
+    height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1126,13 +1314,14 @@ ul.dot li::before {
     background-color: #EEEEEE;
   }
   main section#about .section-title {
-    margin-bottom: 4.6666666667vw;
+    margin-bottom: 5.3333333333vw;
     font-size: 2.8rem;
     font-size: 7.4666666667vw;
     line-height: 1.4642857143;
     color: #281575;
   }
   main section#about .section-text {
+    margin-bottom: 4.6666666667vw;
     font-size: 1.5rem;
     font-size: 4vw;
     line-height: 1.8;
@@ -1178,9 +1367,8 @@ ul.dot li::before {
   }
   main section#shop-list .wrapper .shop-img {
     margin-bottom: 2.6666666667vw;
-  }
-  main section#shop-list .wrapper .shop-img img {
     border-radius: 2.3529466667vw;
+    overflow: hidden;
   }
   main section#shop-list .wrapper .shop-name {
     color: #000000;
@@ -1530,12 +1718,15 @@ ul.dot li::before {
   }
   #overlay .close {
     position: absolute;
-    top: 8rem;
-    right: 8rem;
+    top: 5rem;
+    right: 5rem;
     height: 5rem;
     width: 5rem;
     cursor: pointer;
     z-index: 1;
+  }
+  #overlay .close:hover div {
+    height: 100%;
   }
   #overlay .close div {
     position: absolute;
@@ -1544,6 +1735,8 @@ ul.dot li::before {
     transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
     width: 0.277rem;
     height: 120%;
+    will-change: height;
+    transition: all cubic-bezier(0.65, 0.05, 0.36, 1) 0.3s;
   }
   #overlay .close div:nth-child(1) {
     transform: translate3d(-50%, -50%, 0) rotate(45deg);
@@ -1587,9 +1780,19 @@ ul.dot li::before {
     width: 39%;
     color: #000000;
   }
-  #overlay .inner .box:nth-child(2) .logo img {
+  #overlay .inner .box:nth-child(2) .logo {
+    position: relative;
     margin: 0 0 0 auto;
     height: 8rem;
+    width: 14rem;
+    overflow: visible;
+  }
+  #overlay .inner .box:nth-child(2) .logo img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    height: 200%;
     width: auto;
   }
   #overlay .inner .box:nth-child(2) .wrapper-content {
@@ -1608,7 +1811,9 @@ ul.dot li::before {
     top: -1.7rem;
     right: 0;
     height: 1.7rem;
-    line-height: 1.6rem;
+    line-height: 1.7rem;
+    font-size: 13px;
+    font-size: 1.3rem;
     width: 10rem;
     text-align: center;
     color: #ffffff;
@@ -1618,6 +1823,7 @@ ul.dot li::before {
   }
   #overlay .inner .box:nth-child(2) .wrapper header .name {
     letter-spacing: 0.04em;
+    line-height: 1.4;
   }
   #overlay .inner .box:nth-child(2) .wrapper header .name span {
     display: block;
@@ -1670,8 +1876,27 @@ ul.dot li::before {
     height: 7rem;
     width: 7rem;
     cursor: pointer;
-    background-color: #281575;
+    background-color: #ffffff;
     z-index: 101;
+  }
+  #header .menu-trigger:hover div p:nth-child(1) {
+    top: 20%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  #header .menu-trigger:hover div p:nth-child(3) {
+    top: 80%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  #header .menu-trigger::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: #281575;
+    transition: opacity 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
   #header .menu-trigger.active div p:nth-child(1) {
     top: 50%;
@@ -1688,6 +1913,7 @@ ul.dot li::before {
     position: relative;
     height: 2.2rem;
     width: 4rem;
+    z-index: 1;
   }
   #header .menu-trigger div p {
     position: absolute;
@@ -1696,7 +1922,7 @@ ul.dot li::before {
     left: 50%;
     background-color: #ffffff;
     transform: translate3d(-50%, 0, 0);
-    transition: all cubic-bezier(0.65, 0.05, 0.36, 1) 0.2s;
+    transition: all cubic-bezier(0.65, 0.05, 0.36, 1) 0.3s;
   }
   #header .menu-trigger div p:nth-child(1) {
     top: 0;
@@ -2040,10 +2266,10 @@ ul.dot li::before {
   main section#shop-list .wrapper .shop-img {
     position: relative;
     margin-bottom: 1rem;
+    border-radius: 1.28571rem;
     overflow: hidden;
   }
   main section#shop-list .wrapper .shop-img img {
-    border-radius: 1.28571rem;
     will-change: transform;
     transition: transform cubic-bezier(0.19, 1, 0.22, 1) 1s;
   }

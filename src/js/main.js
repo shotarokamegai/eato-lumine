@@ -34,6 +34,7 @@ class main {
     this.scrollTrigger = document.getElementsByClassName('scroll-trigger');
     this.menuTrigger = document.getElementsByClassName('menu-trigger');
     this.overlayTrigger = document.getElementsByClassName('overlay-trigger');
+    this.swipers = [];
     this.index = 0;
     this.scroller = document.body;
     this.scrollingElement =
@@ -90,7 +91,10 @@ class main {
 
       for (let i = 0; i < imgNum; i++) {
         imgs += `<div class="swiper-slide">
-          <img src="./assets/img/product/${index}_${i+1}.png" alt="">
+          <picture>
+            <source srcset="./assets/img/product/${index}_${i+1}.webp" width="1120" height="840" type="image/webp" />
+            <img src="./assets/img/product/${index}_${i+1}.png" width="1120" height="840" alt="" />
+          </picture>
         </div>`;
       }
 
@@ -102,6 +106,11 @@ class main {
       this.overlayLimitedText.innerHTML = elm.getAttribute('data-productdesc');
       this.overlayCat.innerHTML = elm.getAttribute('data-cat');
       this.overlayTel.innerHTML = elm.getAttribute('data-tel');
+      for (let i = 0; i < this.swipers.length; i++) {
+        if (this.swipers[i].className === 'product-slider') {
+          this.swipers[i].wrapper.slideTo(0,0);
+        }
+      }
       this.overlay.classList.add('active');
     }
   }
@@ -179,6 +188,7 @@ class main {
       let loop = true;
       let center = true;
       let pagination = {};
+      let className = '';
       let autoplay = {
           delay: 5000,
           // pauseOnMouseEnter: true,
@@ -187,13 +197,14 @@ class main {
       if (thisSwiper.classList.contains('product-slider')) {
         slides = 1;
         space = 0;
+        className = 'product-slider';
         pagination = {
           el: ".swiper-pagination",
           clickable: true,
         };
-      }
-      if (thisSwiper.classList.contains('marquee-slider')) {
+      } else if (thisSwiper.classList.contains('marquee-slider')) {
         center = false;
+        className = 'marquee-slider';
         speed = 8000;
         slides = 3.5;
         autoplay = {
@@ -206,10 +217,16 @@ class main {
           space = this.width * .04;
         } else {
         }
+      } else {
+        if (this.width < 750) {
+          slides = 1;
+          space = 0;
+        }
       }
-      new Swiper(thisSwiper, {
+      let swiper = new Swiper(thisSwiper, {
         // Optional parameters
         // direction: 'vertical',
+        className: className,
         centeredSlides: center,
         speed: speed,
         // initialSlide: initialSlide,
@@ -224,6 +241,7 @@ class main {
           },
         },
       });
+      this.swipers.push({wrapper: swiper, className: className});
     }
   }
 

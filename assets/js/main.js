@@ -876,6 +876,7 @@ var main = /*#__PURE__*/function () {
     this.scrollTrigger = document.getElementsByClassName('scroll-trigger');
     this.menuTrigger = document.getElementsByClassName('menu-trigger');
     this.overlayTrigger = document.getElementsByClassName('overlay-trigger');
+    this.swipers = [];
     this.index = 0;
     this.scroller = document.body;
     this.scrollingElement = 'scrollingElement' in document ? document.scrollingElement : window.navigator.userAgent.indexOf('WebKit') != -1 ? body : document.documentElement || body.parentNode;
@@ -926,7 +927,7 @@ var main = /*#__PURE__*/function () {
         var index = elm.getAttribute('data-index');
         var imgs = '';
         for (var i = 0; i < imgNum; i++) {
-          imgs += "<div class=\"swiper-slide\">\n          <img src=\"./assets/img/product/".concat(index, "_").concat(i + 1, ".png\" alt=\"\">\n        </div>");
+          imgs += "<div class=\"swiper-slide\">\n          <picture>\n            <source srcset=\"./assets/img/product/".concat(index, "_").concat(i + 1, ".webp\" width=\"1120\" height=\"840\" type=\"image/webp\" />\n            <img src=\"./assets/img/product/").concat(index, "_").concat(i + 1, ".png\" width=\"1120\" height=\"840\" alt=\"\" />\n          </picture>\n        </div>");
         }
         this.overlayLogo.setAttribute('src', "./assets/img/logo/".concat(elm.getAttribute('data-index'), ".png"));
         this.overlayName.innerHTML = elm.getAttribute('data-name');
@@ -936,6 +937,11 @@ var main = /*#__PURE__*/function () {
         this.overlayLimitedText.innerHTML = elm.getAttribute('data-productdesc');
         this.overlayCat.innerHTML = elm.getAttribute('data-cat');
         this.overlayTel.innerHTML = elm.getAttribute('data-tel');
+        for (var _i4 = 0; _i4 < this.swipers.length; _i4++) {
+          if (this.swipers[_i4].className === 'product-slider') {
+            this.swipers[_i4].wrapper.slideTo(0, 0);
+          }
+        }
         this.overlay.classList.add('active');
       }
     }
@@ -1017,6 +1023,7 @@ var main = /*#__PURE__*/function () {
         var loop = true;
         var center = true;
         var pagination = {};
+        var className = '';
         var autoplay = {
           delay: 5000,
           // pauseOnMouseEnter: true,
@@ -1025,13 +1032,14 @@ var main = /*#__PURE__*/function () {
         if (thisSwiper.classList.contains('product-slider')) {
           slides = 1;
           space = 0;
+          className = 'product-slider';
           pagination = {
             el: ".swiper-pagination",
             clickable: true
           };
-        }
-        if (thisSwiper.classList.contains('marquee-slider')) {
+        } else if (thisSwiper.classList.contains('marquee-slider')) {
           center = false;
+          className = 'marquee-slider';
           speed = 8000;
           slides = 3.5;
           autoplay = {
@@ -1043,10 +1051,16 @@ var main = /*#__PURE__*/function () {
             slides = 1.5;
             space = this.width * .04;
           } else {}
+        } else {
+          if (this.width < 750) {
+            slides = 1;
+            space = 0;
+          }
         }
-        new Swiper(thisSwiper, {
+        var swiper = new Swiper(thisSwiper, {
           // Optional parameters
           // direction: 'vertical',
+          className: className,
           centeredSlides: center,
           speed: speed,
           // initialSlide: initialSlide,
@@ -1060,6 +1074,10 @@ var main = /*#__PURE__*/function () {
               ScrollTrigger.refresh();
             }
           }
+        });
+        this.swipers.push({
+          wrapper: swiper,
+          className: className
         });
       }
     }

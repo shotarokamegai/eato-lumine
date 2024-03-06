@@ -840,7 +840,7 @@ ul {
             // cursor: pointer;
             &.open {
               img {
-                transform: translate3d(0, -50%, 0) rotateX(180deg);
+                transform: translate3d(0, -50%, 0) rotateX(0deg);
               }
             }
             img {
@@ -848,7 +848,7 @@ ul {
               top: 50%;
               right: vw(40);
               width: vw(63.6396);
-              transform: translate3d(0, -50%, 0);
+              transform: translate3d(0, -50%, 0) rotateX(180deg);
               transition: transform 0.5s $zoom;
             }
           }
@@ -856,7 +856,7 @@ ul {
             height: 0;
             overflow: hidden;
             will-change: height;
-            transition: height .5s $ziwaziwa;
+            transition: height 2s $ziwaziwa;
             &__inner {
               padding-top: vw(75); 
               .box {
@@ -1704,7 +1704,7 @@ ul {
             cursor: pointer;
             &.open {
               img {
-                transform: translate3d(0, -50%, 0) rotateX(180deg);
+                transform: translate3d(0, -50%, 0) rotateX(0deg);
               }
             }
             img {
@@ -1712,7 +1712,7 @@ ul {
               top: 50%;
               right: rem(30);
               width: rem(40);
-              transform: translate3d(0, -50%, 0);
+              transform: translate3d(0, -50%, 0) rotateX(180deg);
               transition: transform 0.5s $zoom;
             }
           }
@@ -1720,7 +1720,7 @@ ul {
             height: 0;
             overflow: hidden;
             will-change: height;
-            transition: height .5s $ziwaziwa;
+            transition: height 2s $ziwaziwa;
             &__inner {
               padding-top: rem(50); 
               .box {

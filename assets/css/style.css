@@ -1530,21 +1530,21 @@ ul.dot li::before {
     border: 0.1rem solid #281575;
   }
   main section#store-information .faq-title.open img {
-    transform: translate3d(0, -50%, 0) rotateX(180deg);
+    transform: translate3d(0, -50%, 0) rotateX(0deg);
   }
   main section#store-information .faq-title img {
     position: absolute;
     top: 50%;
     right: 5.3333333333vw;
     width: 8.48528vw;
-    transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0) rotateX(180deg);
     transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
   main section#store-information .faq-wrapper {
     height: 0;
     overflow: hidden;
     will-change: height;
-    transition: height 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transition: height 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
   main section#store-information .faq-wrapper__inner {
     padding-top: 10vw;
@@ -2448,21 +2448,21 @@ ul.dot li::before {
     cursor: pointer;
   }
   main section#store-information .faq-title.open img {
-    transform: translate3d(0, -50%, 0) rotateX(180deg);
+    transform: translate3d(0, -50%, 0) rotateX(0deg);
   }
   main section#store-information .faq-title img {
     position: absolute;
     top: 50%;
     right: 3rem;
     width: 4rem;
-    transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0) rotateX(180deg);
     transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
   main section#store-information .faq-wrapper {
     height: 0;
     overflow: hidden;
     will-change: height;
-    transition: height 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transition: height 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
   main section#store-information .faq-wrapper__inner {
     padding-top: 5rem;

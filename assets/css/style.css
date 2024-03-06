@@ -1287,12 +1287,18 @@ ul.dot li::before {
   main section {
     position: relative;
   }
-  main section#top {
-    height: 47.0766933333vw;
+  main section#top::before {
+    content: "";
+    padding-top: 46.875%;
+    display: block;
   }
   main section#top .wrapper {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
     height: 100%;
+    width: 100%;
   }
   main section#top .wrapper .keyv {
     position: absolute;
@@ -1306,6 +1312,7 @@ ul.dot li::before {
   }
   main section#top .wrapper .keyv.active {
     opacity: 1;
+    z-index: 1;
   }
   main section#top .wrapper .keyv img {
     height: 100%;
@@ -1324,11 +1331,17 @@ ul.dot li::before {
     color: #281575;
   }
   main section#about .section-text {
-    margin-bottom: 4.6666666667vw;
+    margin-bottom: 5.3333333333vw;
     font-size: 1.5rem;
     font-size: 4vw;
     line-height: 1.8;
     color: #281575;
+  }
+  main section#about .video {
+    margin: 0 auto 5.3333333333vw;
+    height: 66vw;
+    width: 100%;
+    background-color: gray;
   }
   main section#shop-list {
     padding: 10vw 0;
@@ -1364,6 +1377,19 @@ ul.dot li::before {
     margin-right: 5.3333333333vw;
     margin-bottom: 5.3333333333vw;
     width: 44vw;
+    opacity: 0;
+    transform: translate3d(0, 2.6666666667vw, 0);
+    will-change: transform, opacity;
+  }
+  main section#shop-list .wrapper .shop.active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  main section#shop-list .wrapper .shop.order1, main section#shop-list .wrapper .shop.order2 {
+    transition: transform cubic-bezier(0.19, 1, 0.22, 1) 3s, opacity cubic-bezier(0.19, 1, 0.22, 1) 3s;
+  }
+  main section#shop-list .wrapper .shop.order3, main section#shop-list .wrapper .shop.order0 {
+    transition: transform cubic-bezier(0.19, 1, 0.22, 1) 3s 0.1s, opacity cubic-bezier(0.19, 1, 0.22, 1) 3s 0.1s;
   }
   main section#shop-list .wrapper .shop:nth-child(2n) {
     margin-right: 0;
@@ -2167,12 +2193,18 @@ ul.dot li::before {
   main section {
     position: relative;
   }
-  main section#top {
-    height: 60rem;
+  main section#top::before {
+    content: "";
+    padding-top: 46.875%;
+    display: block;
   }
   main section#top .wrapper {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
     height: 100%;
+    width: 100%;
   }
   main section#top .wrapper .keyv {
     position: absolute;
@@ -2186,6 +2218,7 @@ ul.dot li::before {
   }
   main section#top .wrapper .keyv.active {
     opacity: 1;
+    z-index: 1;
   }
   main section#top .wrapper .keyv img {
     height: 100%;
@@ -2209,6 +2242,13 @@ ul.dot li::before {
     font-size: 2.581rem;
     line-height: 1.6;
     color: #281575;
+  }
+  main section#about .video {
+    margin: 0 auto 3.5rem;
+    height: 49.5rem;
+    width: 83.8095238095%;
+    max-width: 88rem;
+    background-color: gray;
   }
   main section#shop-list {
     padding: 7.5rem 0;

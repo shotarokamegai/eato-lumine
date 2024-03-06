@@ -1089,7 +1089,7 @@ var main = /*#__PURE__*/function () {
       window.scrollTo(0, 0);
       document.body.classList.add('loaded');
       setTimeout(function () {
-        _this2.interval = setInterval(_this2.gifAnim.bind(_this2), 2500);
+        _this2.interval = setInterval(_this2.gifAnim.bind(_this2), 3000);
       }, 1000);
       this.initSwiper();
       // setTimeout(() => {

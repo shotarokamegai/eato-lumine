@@ -1287,6 +1287,9 @@ ul.dot li::before {
   main section {
     position: relative;
   }
+  main section#top {
+    height: 47.0766933333vw;
+  }
   main section#top .wrapper {
     position: relative;
     height: 100%;

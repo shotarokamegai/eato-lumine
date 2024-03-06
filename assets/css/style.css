@@ -918,26 +918,29 @@ ul.dot li::before {
   }
   #header #menu .logo {
     position: absolute;
-    top: 5rem;
+    top: 13.3333333333vw;
     left: 50%;
-    width: 19.09028rem;
+    width: 50.9074266667vw;
     transform: translate3d(-50%, 0, 0);
   }
+  #header #menu .logo img {
+    height: auto;
+    width: 100%;
+  }
   #header #menu ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
     width: 100%;
+    text-align: center;
   }
   #header #menu ul li {
     position: relative;
-    margin-right: 10rem;
-    font-size: 22.5px;
+    display: inline-block;
+    margin-bottom: 12.6666666667vw;
     font-size: 2.25rem;
+    font-size: 6vw;
     color: #ffffff;
   }
   #header #menu ul li .word .char:nth-child(1) {
@@ -1021,15 +1024,15 @@ ul.dot li::before {
     transition: transform 1.5s cubic-bezier(0.8, 0, 0.2, 1) 0.95s;
   }
   #header #menu ul li:last-child {
-    margin-right: 0;
+    margin-bottom: 0;
   }
   #header #menu ul li::after {
     position: absolute;
     left: 50%;
-    bottom: -1rem;
+    bottom: -1.3333333333vw;
     transform: translate3d(-50%, 0, 0);
     content: "";
-    height: 0.2rem;
+    height: 0.5333333333vw;
     width: 0%;
     background-color: #ffffff;
     will-change: width;
@@ -1038,19 +1041,19 @@ ul.dot li::before {
   #header #menu .sns {
     position: absolute;
     left: 50%;
-    bottom: 5rem;
+    bottom: 13.3333333333vw;
     transform: translate3d(-50%, 0, 0);
   }
   #header #menu .sns .title {
-    margin-bottom: 1.5rem;
-    font-size: 15px;
-    font-size: 1.5rem;
+    margin-bottom: 6vw;
+    font-size: 2.25rem;
+    font-size: 6vw;
     color: #ffffff;
     text-align: center;
   }
   #header #menu .sns a {
     margin: 0 auto;
-    width: 3.5rem;
+    width: 10vw;
     display: block;
   }
   #footer {
@@ -1124,14 +1127,15 @@ ul.dot li::before {
   }
   main section#about .section-title {
     margin-bottom: 4.6666666667vw;
-    font-size: 2.6695rem;
-    font-size: 7.1186666667vw;
+    font-size: 2.8rem;
+    font-size: 7.4666666667vw;
+    line-height: 1.4642857143;
     color: #281575;
   }
   main section#about .section-text {
-    font-size: 1.2905rem;
-    font-size: 3.4413333333vw;
-    line-height: 1.1999225107;
+    font-size: 1.5rem;
+    font-size: 4vw;
+    line-height: 1.8;
     color: #281575;
   }
   main section#shop-list {
@@ -1322,35 +1326,38 @@ ul.dot li::before {
     transition: height 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
   main section#store-information .faq-wrapper__inner {
-    padding-top: 5rem;
+    padding-top: 10vw;
   }
   main section#store-information .faq-wrapper__inner .box {
-    margin-bottom: 10rem;
+    margin-bottom: 6.6666666667vw;
   }
   main section#store-information .faq-wrapper__inner .box-title {
-    font-size: 25px;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    font-size: 5.8666666667vw;
+    line-height: 1.3636363636;
+    text-align: center;
   }
   main section#store-information .faq-wrapper__inner .box-text {
-    margin-top: 5rem;
-    font-size: 20px;
-    font-size: 2rem;
+    margin-top: 6.6666666667vw;
+    font-size: 1.9rem;
+    font-size: 5.0666666667vw;
+    line-height: 1.5789473684;
   }
   main section#store-information .faq-wrapper__inner .box-text .bold {
-    margin-bottom: 1.5rem;
+    margin-bottom: 4vw;
     display: block;
   }
   main section#store-information .faq-wrapper__inner .box-text .small {
-    font-size: 14px;
     font-size: 1.4rem;
+    font-size: 3.7333333333vw;
+    line-height: 1.5;
   }
   main section#store-information .faq-wrapper__inner .box .note {
-    margin-top: 2rem;
+    margin-top: 6.6666666667vw;
   }
   main section#store-information .faq-wrapper__inner .box .line-wrapper {
-    margin-top: 2rem;
+    margin-top: 6vw;
     border-top: 0.1rem solid #281575;
-    border-bottom: 0.1rem solid #281575;
   }
   main section#store-information .faq-wrapper__inner .box .line-wrapper .line {
     border-bottom: 0.1rem solid #281575;
@@ -1362,16 +1369,18 @@ ul.dot li::before {
     box-sizing: border-box;
   }
   main section#store-information .faq-wrapper__inner .box .line-wrapper .line div:nth-child(1) {
-    width: 20.9523809524%;
+    border-bottom: 0.1rem solid #281575;
+  }
+  main section#store-information .faq-wrapper__inner .box .line-wrapper .line div:nth-child(1) p {
+    padding: 3.3333333333vw 0;
+    text-align: center;
   }
   main section#store-information .faq-wrapper__inner .box .line-wrapper .line div:nth-child(2) {
-    padding: 3rem 0 3rem 3rem;
-    border-left: 0.1rem solid #281575;
-    width: 79.0476190476%;
+    padding: 2.6666666667vw 0;
   }
   main section#store-information .faq-wrapper__inner .box .line-wrapper .line div p, main section#store-information .faq-wrapper__inner .box .line-wrapper .line div ul {
-    font-size: 14px;
     font-size: 1.4rem;
+    font-size: 3.7333333333vw;
     letter-spacing: 0.05em;
     line-height: 1.5;
   }
@@ -1390,7 +1399,7 @@ ul.dot li::before {
   main section#store-information .faq-wrapper__inner .sns a {
     display: block;
     margin: 0 auto;
-    width: 5rem;
+    width: 10vw;
   }
 }
 @media screen and (min-width: 750px) {
@@ -1569,7 +1578,9 @@ ul.dot li::before {
     top: 5rem;
     left: 50%;
     width: 19.09028rem;
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0) img;
+    transform-height: auto;
+    transform-width: 100%;
   }
   #header #menu ul {
     display: flex;

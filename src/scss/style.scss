@@ -297,19 +297,25 @@ ul {
       }
       .logo {
         position: absolute;
-        top: rem(50);
+        top: vw(100);
         left: 50%;
-        width: rem(190.9028);
-        transform: translate3d(-50%, 0, 0)
+        width: vw(381.8057);
+        transform: translate3d(-50%, 0, 0);
+        img {
+          height: auto;
+          width: 100%;
+        }
       }
       ul {
-        @include fitcenter();
+        // @include fitcenter();
         @include center();
         width: 100%;
+        text-align: center;
         li {
           position: relative;
-          margin-right: rem(100);
-          @include fontsize(22.5);
+          display: inline-block;
+          margin-bottom: vw(95);
+          @include fontvw(45);
           color: $white;
           .word {
             .char {
@@ -323,15 +329,15 @@ ul {
             }
           }
           &:last-child {
-            margin-right: 0;
+            margin-bottom: 0;
           }
           &::after {
             position: absolute;
             left: 50%;
-            bottom: rem(-10);
+            bottom: vw(-10);
             transform: translate3d(-50%, 0, 0);
             content: '';
-            height: rem(2);
+            height: vw(4);
             width: 0%;
             background-color: $white;
             will-change: width;
@@ -342,17 +348,17 @@ ul {
       .sns {
         position: absolute;
         left: 50%;
-        bottom: rem(50);
+        bottom: vw(100);
         transform: translate3d(-50%, 0, 0);
         .title {
-          margin-bottom: rem(15);
-          @include fontsize(15);
+          margin-bottom: vw(45);
+          @include fontvw(45);
           color: $white;
           text-align: center;
         }
         a {
           margin: 0 auto;
-          width: rem(35);
+          width: vw(75);
           display: block;
         }
       }
@@ -441,12 +447,13 @@ ul {
         .section {
           &-title {
             margin-bottom: vw(35);
-            @include fontvw(53.39);
+            @include fontvw(56);
+            line-height: (82 / 56);
             color: $navy;
           }
           &-text {
-            @include fontvw(25.81);
-            line-height: (30.97 / 25.81);
+            @include fontvw(30);
+            line-height: (54 / 30);
             color: $navy;
           }
         }
@@ -644,30 +651,34 @@ ul {
             will-change: height;
             transition: height .5s $ziwaziwa;
             &__inner {
-              padding-top: rem(50); 
+              padding-top: vw(75); 
               .box {
-                margin-bottom: rem(100);
+                margin-bottom: vw(50);
                 &-title {
-                  @include fontsize(25);
+                  @include fontvw(44);
+                  line-height: (60 / 44);
+                  text-align: center;
                 }
                 &-text {
-                  margin-top: rem(50);
-                  @include fontsize(20);
+                  margin-top: vw(50);
+                  @include fontvw(38);
+                  line-height: (60 / 38);
                   .bold {
-                    margin-bottom: rem(15);
+                    margin-bottom: vw(30);
                     display: block;
                   }
                   .small {
-                    @include fontsize(14);
+                    @include fontvw(28);
+                    line-height: (42 / 28);
                   }
                 }
                 .note {
-                  margin-top: rem(20);
+                  margin-top: vw(50);
                 }
                 .line-wrapper {
-                  margin-top: rem(20);
+                  margin-top: vw(45);
                   border-top: rem(1) solid $navy;
-                  border-bottom: rem(1) solid $navy;
+                  // border-bottom: rem(1) solid $navy;
                   .line {
                     border-bottom: rem(1) solid $navy;
                     &:last-child {
@@ -676,19 +687,19 @@ ul {
                     div {
                       box-sizing: border-box;
                       &:nth-child(1) {
-                        width: 20.952380952380953%;
+                        border-bottom: rem(1) solid $navy;
+                        p {
+                          padding: vw(25) 0;
+                          text-align: center;
+                        }
                       }
                       &:nth-child(2) {
-                        padding: rem(30) 0 rem(30) rem(30);
-                        border-left: rem(1) solid $navy;
-                        width: calc( 100% - 20.952380952380953% );
+                        padding: vw(20) 0;
                       }
                       p, ul {
-                        @include fontsize(14);
+                        @include fontvw(28);
                         @include tracking(50);
-                        line-height: (21 / 14);
-                      }
-                      p {
+                        line-height: (42 / 28);
                       }
                     }
                   }
@@ -707,7 +718,7 @@ ul {
                 a {
                   display: block;
                   margin: 0 auto;
-                  width: rem(50);
+                  width: vw(75);
                 }
               }
             }
@@ -907,6 +918,10 @@ ul {
         left: 50%;
         width: rem(190.9028);
         transform: translate3d(-50%, 0, 0)
+        img {
+          height: auto;
+          width: 100%;
+        }
       }
       ul {
         @include fitcenter();

@@ -16,13 +16,25 @@ class main {
     this.top = document.getElementById('top');
     this.logo = document.getElementById('logo');
     this.menu = document.getElementById('menu');
+    this.overlay = document.getElementById('overlay');
+    this.overlayLogo = document.getElementById('overlay-logo');
+    this.overlayName = document.getElementById('overlay-name');
+    this.overlayText = document.getElementById('overlay-text');
+    this.overlayImgs = document.getElementById('overlay-imgs');
+    this.overlayLimitedName = document.getElementById('overlay-limited-name');
+    this.overlayLimitedText = document.getElementById('overlay-limited-text');
+    this.overlayCat = document.getElementById('overlay-cat');
+    this.overlayTel = document.getElementById('overlay-tel');
     this.footer = document.getElementById('footer');
+    this.kv = document.getElementsByClassName('keyv');
     this.faqTitle = document.getElementsByClassName('faq-title')[0];
     this.faqWrapper = document.getElementsByClassName('faq-wrapper')[0];
     this.faqWrapperInner = document.getElementsByClassName('faq-wrapper__inner')[0];
     this.swiperContainer = document.getElementsByClassName('swiper-container');
     this.scrollTrigger = document.getElementsByClassName('scroll-trigger');
     this.menuTrigger = document.getElementsByClassName('menu-trigger');
+    this.overlayTrigger = document.getElementsByClassName('overlay-trigger');
+    this.index = 0;
     this.scroller = document.body;
     this.scrollingElement =
       'scrollingElement' in document
@@ -38,6 +50,9 @@ class main {
     this.faqTitle.addEventListener('click', this.triggerQa.bind(this));
     for (let i = 0; i < this.menuTrigger.length; i++) {
       this.menuTrigger[i].addEventListener('click', this.triggerMenu.bind(this));
+    }
+    for (let i = 0; i < this.overlayTrigger.length; i++) {
+      this.overlayTrigger[i].addEventListener('click', this.triggerOverlay.bind(this));
     }
     for (let i = 0; i < this.scrollTrigger.length; i++) {
       this.scrollTrigger[i].addEventListener('click', this.toScroll.bind(this));
@@ -61,6 +76,33 @@ class main {
       for (let i = 0; i < this.menuTrigger.length; i++) {
         this.menuTrigger[i].classList.add('active');
       }
+    }
+  }
+
+  triggerOverlay(e) {
+    if (this.overlay.classList.contains('active')) {
+      this.overlay.classList.remove('active');
+    } else {
+      let elm = e.currentTarget;
+      let imgNum = elm.getAttribute('data-imgnum');
+      let index = elm.getAttribute('data-index');
+      let imgs = '';
+
+      for (let i = 0; i < imgNum; i++) {
+        imgs += `<div class="swiper-slide">
+          <img src="./assets/img/product/${index}_${i+1}.png" alt="">
+        </div>`;
+      }
+
+      this.overlayLogo.setAttribute('src', `./assets/img/logo/${elm.getAttribute('data-index')}.png`);
+      this.overlayName.innerHTML = elm.getAttribute('data-name');
+      this.overlayText.innerHTML = elm.getAttribute('data-shopdesc');
+      this.overlayImgs.innerHTML = imgs;
+      this.overlayLimitedName.innerHTML = elm.getAttribute('data-product');
+      this.overlayLimitedText.innerHTML = elm.getAttribute('data-productdesc');
+      this.overlayCat.innerHTML = elm.getAttribute('data-cat');
+      this.overlayTel.innerHTML = elm.getAttribute('data-tel');
+      this.overlay.classList.add('active');
     }
   }
 
@@ -116,6 +158,11 @@ class main {
     let top = elemRect.top + scrollY;
 
     top -= this.header.clientHeight;
+    this.menu.classList.remove('active');
+
+    for (let i = 0; i < this.menuTrigger.length; i++) {
+      this.menuTrigger[i].classList.remove('active');
+    }
 
     Scroll.to(top, 2);
     if (elm.classList.contains('open')) {
@@ -126,17 +173,27 @@ class main {
   initSwiper() {
     for (let i = 0; i < this.swiperContainer.length; i++) {
       let thisSwiper = this.swiperContainer[i];
-      let space = 20;
-      let slides = 2.5;
-      let speed = 700;
+      let space = 40;
+      let slides = 1.5;
+      let speed = 1000;
       let loop = true;
-      let  initialSlide = 0;
+      let center = true;
+      let pagination = {};
       let autoplay = {
-          delay: 3000,
+          delay: 5000,
           // pauseOnMouseEnter: true,
           disableOnInteraction: false,
         };
+      if (thisSwiper.classList.contains('product-slider')) {
+        slides = 1;
+        space = 0;
+        pagination = {
+          el: ".swiper-pagination",
+          clickable: true,
+        };
+      }
       if (thisSwiper.classList.contains('marquee-slider')) {
+        center = false;
         speed = 8000;
         slides = 3.5;
         autoplay = {
@@ -153,12 +210,14 @@ class main {
       new Swiper(thisSwiper, {
         // Optional parameters
         // direction: 'vertical',
+        centeredSlides: center,
         speed: speed,
         // initialSlide: initialSlide,
         loop: loop,
         autoplay: autoplay,
         slidesPerView: slides,
         spaceBetween: space,
+        pagination: pagination,
         on: {
           init: () => {
             ScrollTrigger.refresh();
@@ -172,11 +231,26 @@ class main {
     this.resizeEvent();
     window.scrollTo(0, 0);
     document.body.classList.add('loaded');
+    setTimeout(() => {
+      this.interval = setInterval(this.gifAnim.bind(this), 2500);
+    }, 1000);
     this.initSwiper();
     // setTimeout(() => {
     //   this.logo.setAttribute('src', './assets/img/logo.gif');
     //   this.logo.classList.add('visible');
     // }, 500);
+  }
+
+  gifAnim() {
+    if (this.index < this.kv.length-1) {
+      this.index++;
+    } else {
+      this.index = 0;
+    }
+    for (let i = 0; i < this.kv.length; i++) {
+      this.kv[i].classList.remove('active');
+    }
+    this.kv[this.index].classList.add('active');
   }
 
   resizeEvent() {

@@ -858,13 +858,25 @@ var main = /*#__PURE__*/function () {
     this.top = document.getElementById('top');
     this.logo = document.getElementById('logo');
     this.menu = document.getElementById('menu');
+    this.overlay = document.getElementById('overlay');
+    this.overlayLogo = document.getElementById('overlay-logo');
+    this.overlayName = document.getElementById('overlay-name');
+    this.overlayText = document.getElementById('overlay-text');
+    this.overlayImgs = document.getElementById('overlay-imgs');
+    this.overlayLimitedName = document.getElementById('overlay-limited-name');
+    this.overlayLimitedText = document.getElementById('overlay-limited-text');
+    this.overlayCat = document.getElementById('overlay-cat');
+    this.overlayTel = document.getElementById('overlay-tel');
     this.footer = document.getElementById('footer');
+    this.kv = document.getElementsByClassName('keyv');
     this.faqTitle = document.getElementsByClassName('faq-title')[0];
     this.faqWrapper = document.getElementsByClassName('faq-wrapper')[0];
     this.faqWrapperInner = document.getElementsByClassName('faq-wrapper__inner')[0];
     this.swiperContainer = document.getElementsByClassName('swiper-container');
     this.scrollTrigger = document.getElementsByClassName('scroll-trigger');
     this.menuTrigger = document.getElementsByClassName('menu-trigger');
+    this.overlayTrigger = document.getElementsByClassName('overlay-trigger');
+    this.index = 0;
     this.scroller = document.body;
     this.scrollingElement = 'scrollingElement' in document ? document.scrollingElement : window.navigator.userAgent.indexOf('WebKit') != -1 ? body : document.documentElement || body.parentNode;
     gsap.registerPlugin(ScrollTrigger);
@@ -875,8 +887,11 @@ var main = /*#__PURE__*/function () {
     for (var i = 0; i < this.menuTrigger.length; i++) {
       this.menuTrigger[i].addEventListener('click', this.triggerMenu.bind(this));
     }
-    for (var _i = 0; _i < this.scrollTrigger.length; _i++) {
-      this.scrollTrigger[_i].addEventListener('click', this.toScroll.bind(this));
+    for (var _i = 0; _i < this.overlayTrigger.length; _i++) {
+      this.overlayTrigger[_i].addEventListener('click', this.triggerOverlay.bind(this));
+    }
+    for (var _i2 = 0; _i2 < this.scrollTrigger.length; _i2++) {
+      this.scrollTrigger[_i2].addEventListener('click', this.toScroll.bind(this));
     }
     window.onresize = function () {
       _this.resizeEvent();
@@ -895,9 +910,33 @@ var main = /*#__PURE__*/function () {
         }
       } else {
         this.menu.classList.add('active');
-        for (var _i2 = 0; _i2 < this.menuTrigger.length; _i2++) {
-          this.menuTrigger[_i2].classList.add('active');
+        for (var _i3 = 0; _i3 < this.menuTrigger.length; _i3++) {
+          this.menuTrigger[_i3].classList.add('active');
         }
+      }
+    }
+  }, {
+    key: "triggerOverlay",
+    value: function triggerOverlay(e) {
+      if (this.overlay.classList.contains('active')) {
+        this.overlay.classList.remove('active');
+      } else {
+        var elm = e.currentTarget;
+        var imgNum = elm.getAttribute('data-imgnum');
+        var index = elm.getAttribute('data-index');
+        var imgs = '';
+        for (var i = 0; i < imgNum; i++) {
+          imgs += "<div class=\"swiper-slide\">\n          <img src=\"./assets/img/product/".concat(index, "_").concat(i + 1, ".png\" alt=\"\">\n        </div>");
+        }
+        this.overlayLogo.setAttribute('src', "./assets/img/logo/".concat(elm.getAttribute('data-index'), ".png"));
+        this.overlayName.innerHTML = elm.getAttribute('data-name');
+        this.overlayText.innerHTML = elm.getAttribute('data-shopdesc');
+        this.overlayImgs.innerHTML = imgs;
+        this.overlayLimitedName.innerHTML = elm.getAttribute('data-product');
+        this.overlayLimitedText.innerHTML = elm.getAttribute('data-productdesc');
+        this.overlayCat.innerHTML = elm.getAttribute('data-cat');
+        this.overlayTel.innerHTML = elm.getAttribute('data-tel');
+        this.overlay.classList.add('active');
       }
     }
   }, {
@@ -958,6 +997,10 @@ var main = /*#__PURE__*/function () {
       var scrollY = window.scrollY || window.pageYOffset;
       var top = elemRect.top + scrollY;
       top -= this.header.clientHeight;
+      this.menu.classList.remove('active');
+      for (var i = 0; i < this.menuTrigger.length; i++) {
+        this.menuTrigger[i].classList.remove('active');
+      }
       _utils_Scroll__WEBPACK_IMPORTED_MODULE_1__["default"].to(top, 2);
       if (elm.classList.contains('open')) {
         this.triggerQa(target.getElementsByClassName('q')[0]);
@@ -968,17 +1011,27 @@ var main = /*#__PURE__*/function () {
     value: function initSwiper() {
       for (var i = 0; i < this.swiperContainer.length; i++) {
         var thisSwiper = this.swiperContainer[i];
-        var space = 20;
-        var slides = 2.5;
-        var speed = 700;
+        var space = 40;
+        var slides = 1.5;
+        var speed = 1000;
         var loop = true;
-        var initialSlide = 0;
+        var center = true;
+        var pagination = {};
         var autoplay = {
-          delay: 3000,
+          delay: 5000,
           // pauseOnMouseEnter: true,
           disableOnInteraction: false
         };
+        if (thisSwiper.classList.contains('product-slider')) {
+          slides = 1;
+          space = 0;
+          pagination = {
+            el: ".swiper-pagination",
+            clickable: true
+          };
+        }
         if (thisSwiper.classList.contains('marquee-slider')) {
+          center = false;
           speed = 8000;
           slides = 3.5;
           autoplay = {
@@ -994,12 +1047,14 @@ var main = /*#__PURE__*/function () {
         new Swiper(thisSwiper, {
           // Optional parameters
           // direction: 'vertical',
+          centeredSlides: center,
           speed: speed,
           // initialSlide: initialSlide,
           loop: loop,
           autoplay: autoplay,
           slidesPerView: slides,
           spaceBetween: space,
+          pagination: pagination,
           on: {
             init: function init() {
               ScrollTrigger.refresh();
@@ -1011,14 +1066,31 @@ var main = /*#__PURE__*/function () {
   }, {
     key: "init",
     value: function init() {
+      var _this2 = this;
       this.resizeEvent();
       window.scrollTo(0, 0);
       document.body.classList.add('loaded');
+      setTimeout(function () {
+        _this2.interval = setInterval(_this2.gifAnim.bind(_this2), 2500);
+      }, 1000);
       this.initSwiper();
       // setTimeout(() => {
       //   this.logo.setAttribute('src', './assets/img/logo.gif');
       //   this.logo.classList.add('visible');
       // }, 500);
+    }
+  }, {
+    key: "gifAnim",
+    value: function gifAnim() {
+      if (this.index < this.kv.length - 1) {
+        this.index++;
+      } else {
+        this.index = 0;
+      }
+      for (var i = 0; i < this.kv.length; i++) {
+        this.kv[i].classList.remove('active');
+      }
+      this.kv[this.index].classList.add('active');
     }
   }, {
     key: "resizeEvent",

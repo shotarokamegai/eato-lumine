@@ -1,9 +1,12 @@
-<div class="shop">
+<%
+var order = parseInt(data[0]) % 4;
+%>
+<div id="shop<%- data[0] %>" class="shop overlay-trigger addactive order<%- order %>" data-index="<%- data[0] %>" data-name="<%- data[1] %>" data-cat="<%- data[2] %>" data-tel="<%- data[3] %>" data-shopdesc="<%- data[4] %>" data-limited="<%- data[5] %>" data-product="<%- data[6] %>" data-productdesc="<%- data[7] %>" data-imgnum="<%- data[8] %>">
     <div class="shop-img">
-      <img src="./assets/img/shop<%- index %>.png" width="480" height="361" alt="" loading="lazy"/>
+      <img src="./assets/img/logo/<%- index %>.png" width="480" height="361" alt="" loading="lazy"/>
     </div>
     <p class="shop-name">
-        <span class="en bold"><%- data[0] %></span>
-        <span class="ja"><%- data[1] %></span>
+        <span class="en bold"><%- data[1] %></span>
+        <span class="ja"><%- data[2] %></span>
     </p>
 </div>

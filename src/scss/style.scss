@@ -246,6 +246,11 @@ ul {
         background-color: $navy;
       }
     }
+    &.no-limited {
+      .limited {
+        display: none;
+      }
+    }
     .close {
       position: fixed;
       top: vw(60);
@@ -637,16 +642,26 @@ ul {
           }
           &-text {
             margin-bottom: vw(40);
-            @include fontvw(30);
+            @include fontvw(2);
+            // letter-spacing: -.1vw;
             line-height: (54 / 30);
+            white-space: nowrap;
             color: $navy;
           }
         }
         .video {
+          position: relative;
           margin: 0 auto vw(40);
           height: vw(495);
           width: 100%;
           background-color: gray;
+          &::before {
+            @include center();
+            content: 'movie';
+            @include fontvw(30);
+            color: $white;
+            z-index: 1;
+          }
         }
       }
       &#shop-list {
@@ -856,7 +871,10 @@ ul {
             height: 0;
             overflow: hidden;
             will-change: height;
-            transition: height 2s $ziwaziwa;
+            transition: height .5s $ziwaziwa;
+            &.open {
+              transition: height 1s $ziwaziwa;
+            }
             &__inner {
               padding-top: vw(75); 
               .box {
@@ -1068,6 +1086,11 @@ ul {
       }
       .limited-title {
         background-color: $navy;
+      }
+    }
+    &.no-limited {
+      .limited {
+        display: none;
       }
     }
     .close {
@@ -1341,7 +1364,7 @@ ul {
         top: rem(50);
         left: 50%;
         width: rem(190.9028);
-        transform: translate3d(-50%, 0, 0)
+        transform: translate3d(-50%, 0, 0);
         img {
           height: auto;
           width: 100%;
@@ -1440,6 +1463,7 @@ ul {
       }
       .under {
         position: relative;
+        white-space: nowrap;
         &::after {
           position: absolute;
           bottom: 0;
@@ -1490,7 +1514,7 @@ ul {
         }
       }
       &#about {
-        padding: rem(75) 0 0;
+        padding: rem(75) 0;
         background-color: $lightGray;
         .section {
           &-title {
@@ -1512,6 +1536,13 @@ ul {
           width: 83.80952380952381%;
           max-width: rem(880);
           background-color: gray;
+          &::before {
+            @include center();
+            content: 'movie';
+            @include fontsize(30);
+            color: $white;
+            z-index: 1;
+          }
         }
       }
       &#shop-list {
@@ -1669,6 +1700,7 @@ ul {
             height: rem(65);
             @include fitcenter();
             @include fontsize(30);
+            @include tracking(50);
             color: $white;
             background-color: $navy;
             p {
@@ -1720,7 +1752,10 @@ ul {
             height: 0;
             overflow: hidden;
             will-change: height;
-            transition: height 2s $ziwaziwa;
+            transition: height .5s $ziwaziwa;
+            &.open {
+              transition: height 1s $ziwaziwa;
+            }
             &__inner {
               padding-top: rem(50); 
               .box {

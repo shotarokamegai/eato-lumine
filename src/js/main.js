@@ -112,6 +112,10 @@ class main {
           this.swipers[i].wrapper.slideTo(0,0);
         }
       }
+      this.overlay.classList.remove('no-limited');
+      if (elm.getAttribute('data-limited') === '') {
+        this.overlay.classList.add('no-limited');
+      }
       imagesLoaded(this.overlayLogo, () => {
         this.overlay.classList.add('active');
       });
@@ -156,9 +160,11 @@ class main {
     if (elm.classList.contains('open')) {
       elm.classList.remove('open');
       this.faqWrapper.setAttribute('style', `height: 0`);
+      this.faqWrapper.classList.remove('open');
     } else {
       elm.classList.add('open');
       this.faqWrapper.setAttribute('style', `height: ${this.faqWrapperInner.clientHeight}px`);
+      this.faqWrapper.classList.add('open');
     }
   }
   

@@ -78,59 +78,6 @@ var sheet = [
         </div>
       </div>
     </section>
-    <section id="about" class="section">
-      <div class="section__inner">
-        <h2 class="section-title addactive jump">
-          <span class="pc">
-            <span data-splitting>
-              世界でいちばんの、うれしい出会いを。
-            </span>
-          </span>
-          <span class="sp">
-            <span data-splitting>
-              世界でいちばんの、
-            </span>
-            <span data-splitting>
-              うれしい出会いを。
-            </span>
-          </span>
-        </h2>
-        <p class="section-text shippori show addactive">
-          世界でいちばん多くの人が使う駅に、世界がときめく嬉しい出会いを集めました。
-          ワクワクするモノも、おいしいモノも、幸福な時間も、まるっと満たしたい。
-          すこし欲張りな場所です。さぁ、あなたのに。特別な毎日に。
-        </p>
-        <div class="video show addactive"></div>
-        <div class="swiper-container show addactive">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <picture>
-                <source srcset="./assets/img/sp_scene_1.webp" width="900" height="640" media="(max-width:749px)" type="image/webp" />
-                <source srcset="./assets/img/sp_scene_1.png" width="900" height="640" media="(max-width:749px)" />
-                <source srcset="./assets/img/pc_scene_1.webp" width="1496" height="7700" type="image/webp" />
-                <img src="./assets/img/pc_scene_1.png" width="1496" height="7700" alt="" />
-              </picture>
-            </div>
-            <div class="swiper-slide">
-              <picture>
-                <source srcset="./assets/img/sp_scene_2.webp" width="900" height="640" media="(max-width:749px)" type="image/webp" />
-                <source srcset="./assets/img/sp_scene_2.png" width="900" height="640" media="(max-width:749px)" />
-                <source srcset="./assets/img/pc_scene_2.webp" width="1496" height="7700" type="image/webp" />
-                <img src="./assets/img/pc_scene_2.png" width="1496" height="7700" alt="" />
-              </picture>
-            </div>
-            <div class="swiper-slide">
-              <picture>
-                <source srcset="./assets/img/sp_scene_3.webp" width="900" height="640" media="(max-width:749px)" type="image/webp" />
-                <source srcset="./assets/img/sp_scene_3.png" width="900" height="640" media="(max-width:749px)" />
-                <source srcset="./assets/img/pc_scene_3.webp" width="1496" height="7700" type="image/webp" />
-                <img src="./assets/img/pc_scene_3.png" width="1496" height="7700" alt="" />
-              </picture>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section id="shop-list" class="section">
       <div class="section__inner">
         <h2 class="section-title show addactive flex justify-center jump">
@@ -223,18 +170,20 @@ var sheet = [
           ​※Suicaで同一駅の自動改札機を2時間以内に入出場された場合には、自動改札機の出場時に入金（チャージ）残額からIC入場サービス「タッチでエキナカ」の料金を自動的に差し引きます。</p>
         <div class="card-wrapper flex space-between">
           <div class="box show addactive">
-            <a href="http://" target="_blank" rel="noopener"></a>
-            <picture class="hover">
+            <a href="//www.lumine.ne.jp/card/" target="_blank" rel="noopener" class="hover">
+            <picture>
               <source srcset="./assets/img/pcsp_banner_1.webp" type="image/webp" />
               <img src="./assets/img/pcsp_banner_1.png" width="500" height="200" alt="イイトルミネのお買い物はルミネカードでいつでも5%OFF!" loading="lazy" />
             </picture>
+              </a>
           </div>
           <div class="box show addactive">
-            <a href="http://" target="_blank" rel="noopener"></a>
-            <picture class="hover">
+            <a href="//www.lumine.ne.jp/jrepoint/" target="_blank" rel="noopener" class="hover">
+            <picture>
               <source srcset="./assets/img/pcsp_banner_2.webp" type="image/webp" />
               <img src="./assets/img/pcsp_banner_2.png" width="500" height="200" alt="イイトルミネのお買い物でJRE POINTが貯まる・使える！" loading="lazy" />
             </picture>
+            </a>
           </div>
         </div>
         <div class="faq">
@@ -387,6 +336,59 @@ var sheet = [
           <a href="http://" target="_blank" rel="noopener" class="show addactive">
             <img src="./assets/img/insta.svg" width="50" height="50" alt="" loading="lazy" />
           </a>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="section">
+      <div class="section__inner">
+        <h2 class="section-title addactive jump">
+          <span class="pc">
+            <span data-splitting>
+              世界でいちばんの、うれしい出会いを。
+            </span>
+          </span>
+          <span class="sp">
+            <span data-splitting>
+              世界でいちばんの、
+            </span>
+            <span data-splitting>
+              うれしい出会いを。
+            </span>
+          </span>
+        </h2>
+        <p class="section-text shippori show addactive">
+          世界でいちばん多くの人が使う駅に、<br class="sp"/>世界がときめく嬉しい出会いを集めました。<br/>
+          ワクワクするモノも、おいしいモノも、幸福な時間も、<br class="sp"/>まるっと満たしたい。<br class="pc" />
+          すこし欲張りな場所です。<br class="sp"/>さぁ、あなたのに。特別な毎日に。
+        </p>
+        <div class="video show addactive"></div>
+        <div class="swiper-container show addactive">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./assets/img/sp_scene_1.webp" width="900" height="640" media="(max-width:749px)" type="image/webp" />
+                <source srcset="./assets/img/sp_scene_1.png" width="900" height="640" media="(max-width:749px)" />
+                <source srcset="./assets/img/pc_scene_1.webp" width="1496" height="7700" type="image/webp" />
+                <img src="./assets/img/pc_scene_1.png" width="1496" height="7700" alt="" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./assets/img/sp_scene_2.webp" width="900" height="640" media="(max-width:749px)" type="image/webp" />
+                <source srcset="./assets/img/sp_scene_2.png" width="900" height="640" media="(max-width:749px)" />
+                <source srcset="./assets/img/pc_scene_2.webp" width="1496" height="7700" type="image/webp" />
+                <img src="./assets/img/pc_scene_2.png" width="1496" height="7700" alt="" />
+              </picture>
+            </div>
+            <div class="swiper-slide">
+              <picture>
+                <source srcset="./assets/img/sp_scene_3.webp" width="900" height="640" media="(max-width:749px)" type="image/webp" />
+                <source srcset="./assets/img/sp_scene_3.png" width="900" height="640" media="(max-width:749px)" />
+                <source srcset="./assets/img/pc_scene_3.webp" width="1496" height="7700" type="image/webp" />
+                <img src="./assets/img/pc_scene_3.png" width="1496" height="7700" alt="" />
+              </picture>
+            </div>
+          </div>
         </div>
       </div>
     </section>

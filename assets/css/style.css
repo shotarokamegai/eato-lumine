@@ -867,6 +867,9 @@ ul.dot li::before {
   #overlay.scene3 .limited-title {
     background-color: #281575;
   }
+  #overlay.no-limited .limited {
+    display: none;
+  }
   #overlay .close {
     position: fixed;
     top: 8vw;
@@ -1333,16 +1336,29 @@ ul.dot li::before {
   }
   main section#about .section-text {
     margin-bottom: 5.3333333333vw;
-    font-size: 1.5rem;
-    font-size: 4vw;
+    font-size: 0.1rem;
+    font-size: 0.2666666667vw;
     line-height: 1.8;
+    white-space: nowrap;
     color: #281575;
   }
   main section#about .video {
+    position: relative;
     margin: 0 auto 5.3333333333vw;
     height: 66vw;
     width: 100%;
     background-color: gray;
+  }
+  main section#about .video::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    content: "movie";
+    font-size: 1.5rem;
+    font-size: 4vw;
+    color: #ffffff;
+    z-index: 1;
   }
   main section#shop-list {
     padding: 10vw 0;
@@ -1544,7 +1560,10 @@ ul.dot li::before {
     height: 0;
     overflow: hidden;
     will-change: height;
-    transition: height 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transition: height 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  }
+  main section#store-information .faq-wrapper.open {
+    transition: height 1s cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
   main section#store-information .faq-wrapper__inner {
     padding-top: 10vw;
@@ -1745,6 +1764,9 @@ ul.dot li::before {
   }
   #overlay.scene3 .limited-title {
     background-color: #281575;
+  }
+  #overlay.no-limited .limited {
+    display: none;
   }
   #overlay .close {
     position: absolute;
@@ -2003,9 +2025,11 @@ ul.dot li::before {
     top: 5rem;
     left: 50%;
     width: 19.09028rem;
-    transform: translate3d(-50%, 0, 0) img;
-    transform-height: auto;
-    transform-width: 100%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  #header #menu .logo img {
+    height: auto;
+    width: 100%;
   }
   #header #menu ul {
     display: flex;
@@ -2173,6 +2197,7 @@ ul.dot li::before {
   }
   main .section-title .under {
     position: relative;
+    white-space: nowrap;
   }
   main .section-title .under::after {
     position: absolute;
@@ -2228,7 +2253,7 @@ ul.dot li::before {
        object-fit: cover;
   }
   main section#about {
-    padding: 7.5rem 0 0;
+    padding: 7.5rem 0;
     background-color: #EEEEEE;
   }
   main section#about .section-title {
@@ -2251,6 +2276,17 @@ ul.dot li::before {
     width: 83.8095238095%;
     max-width: 88rem;
     background-color: gray;
+  }
+  main section#about .video::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    content: "movie";
+    font-size: 30px;
+    font-size: 3rem;
+    color: #ffffff;
+    z-index: 1;
   }
   main section#shop-list {
     padding: 7.5rem 0;
@@ -2408,6 +2444,7 @@ ul.dot li::before {
     justify-content: center;
     font-size: 30px;
     font-size: 3rem;
+    letter-spacing: 0.05em;
     color: #ffffff;
     background-color: #281575;
   }
@@ -2462,7 +2499,10 @@ ul.dot li::before {
     height: 0;
     overflow: hidden;
     will-change: height;
-    transition: height 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transition: height 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  }
+  main section#store-information .faq-wrapper.open {
+    transition: height 1s cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
   main section#store-information .faq-wrapper__inner {
     padding-top: 5rem;

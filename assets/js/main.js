@@ -944,6 +944,10 @@ var main = /*#__PURE__*/function () {
             this.swipers[_i4].wrapper.slideTo(0, 0);
           }
         }
+        this.overlay.classList.remove('no-limited');
+        if (elm.getAttribute('data-limited') === '') {
+          this.overlay.classList.add('no-limited');
+        }
         imagesLoaded(this.overlayLogo, function () {
           _this2.overlay.classList.add('active');
         });
@@ -993,9 +997,11 @@ var main = /*#__PURE__*/function () {
       if (elm.classList.contains('open')) {
         elm.classList.remove('open');
         this.faqWrapper.setAttribute('style', "height: 0");
+        this.faqWrapper.classList.remove('open');
       } else {
         elm.classList.add('open');
         this.faqWrapper.setAttribute('style', "height: ".concat(this.faqWrapperInner.clientHeight, "px"));
+        this.faqWrapper.classList.add('open');
       }
     }
   }, {

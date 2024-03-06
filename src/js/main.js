@@ -1,5 +1,6 @@
 import _ from './utils/Util';
-import * as THREE from 'three';
+// import imagesLoaded from 'imagesloaded'
+// import * as THREE from 'three';
 import Scroll from './utils/Scroll';
 // import frag from "./../../assets/shader/main.frag?raw";
 // import vert from "./../../assets/shader/main.vert?raw";
@@ -111,7 +112,9 @@ class main {
           this.swipers[i].wrapper.slideTo(0,0);
         }
       }
-      this.overlay.classList.add('active');
+      imagesLoaded(this.overlayLogo, () => {
+        this.overlay.classList.add('active');
+      });
     }
   }
 

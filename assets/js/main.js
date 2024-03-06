@@ -840,7 +840,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
-
+// import imagesLoaded from 'imagesloaded'
+// import * as THREE from 'three';
 
 // import frag from "./../../assets/shader/main.frag?raw";
 // import vert from "./../../assets/shader/main.vert?raw";
@@ -919,6 +920,7 @@ var main = /*#__PURE__*/function () {
   }, {
     key: "triggerOverlay",
     value: function triggerOverlay(e) {
+      var _this2 = this;
       if (this.overlay.classList.contains('active')) {
         this.overlay.classList.remove('active');
       } else {
@@ -942,7 +944,9 @@ var main = /*#__PURE__*/function () {
             this.swipers[_i4].wrapper.slideTo(0, 0);
           }
         }
-        this.overlay.classList.add('active');
+        imagesLoaded(this.overlayLogo, function () {
+          _this2.overlay.classList.add('active');
+        });
       }
     }
   }, {
@@ -1084,12 +1088,12 @@ var main = /*#__PURE__*/function () {
   }, {
     key: "init",
     value: function init() {
-      var _this2 = this;
+      var _this3 = this;
       this.resizeEvent();
       window.scrollTo(0, 0);
       document.body.classList.add('loaded');
       setTimeout(function () {
-        _this2.interval = setInterval(_this2.gifAnim.bind(_this2), 3000);
+        _this3.interval = setInterval(_this3.gifAnim.bind(_this3), 3000);
       }, 1000);
       this.initSwiper();
       // setTimeout(() => {

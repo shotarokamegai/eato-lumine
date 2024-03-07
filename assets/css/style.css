@@ -1288,6 +1288,9 @@ ul.dot li::before {
     font-size: 2.6666666667vw;
     line-height: 1.741;
   }
+  main .note.black {
+    color: #000000;
+  }
   main section {
     position: relative;
   }
@@ -1328,6 +1331,23 @@ ul.dot li::before {
     background-color: #EEEEEE;
   }
   main section#about .section-title {
+    margin-bottom: 10vw;
+  }
+  main section#about .sns {
+    margin-top: 13.3333333333vw;
+  }
+  main section#about .sns .title {
+    margin-bottom: 5.3333333333vw;
+    font-size: 2.25rem;
+    font-size: 6vw;
+    text-align: center;
+  }
+  main section#about .sns a {
+    display: block;
+    margin: 0 auto;
+    width: 10vw;
+  }
+  main section#about .section-title {
     margin-bottom: 5.3333333333vw;
     font-size: 2.8rem;
     font-size: 7.4666666667vw;
@@ -1359,6 +1379,12 @@ ul.dot li::before {
     font-size: 4vw;
     color: #ffffff;
     z-index: 1;
+  }
+  main section#about .swiper-container {
+    position: relative;
+    left: 50%;
+    width: 110vw;
+    transform: translate3d(-50%, 0, 0);
   }
   main section#shop-list {
     padding: 10vw 0;
@@ -1418,6 +1444,7 @@ ul.dot li::before {
   }
   main section#shop-list .wrapper .shop-name {
     color: #000000;
+    line-height: 1.4;
   }
   main section#shop-list .wrapper .shop-name span {
     display: block;
@@ -1509,19 +1536,20 @@ ul.dot li::before {
     background-color: #281575;
   }
   main section#store-information .title-wrapper .title p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+  }
+  main section#store-information .title-wrapper .title p span {
+    display: block;
   }
   main section#store-information .title-wrapper .title .small {
     margin-bottom: 1.3333333333vw;
-    font-size: 0.5rem;
-    font-size: 1.3333333333vw;
+    font-size: 1rem;
+    font-size: 2.6666666667vw;
   }
   main section#store-information .title-wrapper .title .small.yugothic {
     margin-top: 1.3333333333vw;
-    font-size: 0.5rem;
-    font-size: 1.3333333333vw;
+    font-size: 1rem;
+    font-size: 2.6666666667vw;
   }
   main section#store-information .title-wrapper .title:last-child {
     margin-bottom: 0;
@@ -1627,24 +1655,13 @@ ul.dot li::before {
   main section#store-information .faq-wrapper__inner .box:last-child {
     margin-bottom: 0;
   }
-  main section#store-information .faq-wrapper__inner .sns {
-    margin-top: 13.3333333333vw;
-  }
-  main section#store-information .faq-wrapper__inner .sns .title {
-    margin-bottom: 5.3333333333vw;
-    font-size: 2.25rem;
-    font-size: 6vw;
-    text-align: center;
-  }
-  main section#store-information .faq-wrapper__inner .sns a {
-    display: block;
-    margin: 0 auto;
-    width: 10vw;
-  }
 }
 @media screen and (min-width: 750px) {
   .marquee-slider .swiper-wrapper {
     transition-timing-function: linear;
+  }
+  .scroll-trigger {
+    cursor: pointer;
   }
   .show {
     opacity: 0;
@@ -1765,7 +1782,7 @@ ul.dot li::before {
   #overlay.scene3 .limited-title {
     background-color: #281575;
   }
-  #overlay.no-limited .limited {
+  #overlay.no-limited .limited-title {
     display: none;
   }
   #overlay .close {
@@ -1914,10 +1931,25 @@ ul.dot li::before {
     left: 0;
     height: 7rem;
     width: 12rem;
+    background-color: #ffffff;
+    z-index: 1;
+  }
+  #header h1::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1) rotate(0);
+    content: "";
+    height: 100%;
+    width: 100%;
     background-color: #281575;
+    will-change: background-color;
+    transition: background-color 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
   #header h1 img {
+    position: relative;
     width: 9.54514rem;
+    z-index: 1;
   }
   #header .menu-trigger {
     position: absolute;
@@ -2187,7 +2219,7 @@ ul.dot li::before {
   main .section__inner {
     margin: 0 auto;
     width: 82.03125%;
-    max-width: 105rem;
+    max-width: 128rem;
   }
   main .section-title {
     font-family: "Shippori Mincho", serif;
@@ -2216,6 +2248,9 @@ ul.dot li::before {
     font-size: 10px;
     font-size: 1rem;
     line-height: 1.8;
+  }
+  main .note.black {
+    color: #000000;
   }
   main section {
     position: relative;
@@ -2256,11 +2291,36 @@ ul.dot li::before {
     padding: 7.5rem 0;
     background-color: #EEEEEE;
   }
+  main section#about .inline-block {
+    display: inline-block;
+    text-align: left;
+  }
+  main section#about .section-title {
+    margin-bottom: 7.5rem;
+  }
+  main section#about .sns {
+    margin-top: 10rem;
+  }
+  main section#about .sns .title {
+    margin-bottom: 3.5rem;
+    font-size: 30px;
+    font-size: 3rem;
+    text-align: center;
+  }
+  main section#about .sns a {
+    display: block;
+    margin: 0 auto;
+    width: 5rem;
+  }
+  main section#about .section__inner {
+    text-align: center;
+  }
   main section#about .section-title {
     margin-bottom: 3.5rem;
     font-size: 53.39px;
     font-size: 5.339rem;
     line-height: 1.6;
+    white-space: nowrap;
     color: #281575;
   }
   main section#about .section-text {
@@ -2356,6 +2416,7 @@ ul.dot li::before {
   }
   main section#shop-list .wrapper .shop-name {
     color: #000000;
+    line-height: 1.4;
   }
   main section#shop-list .wrapper .shop-name span {
     display: block;
@@ -2560,19 +2621,5 @@ ul.dot li::before {
   }
   main section#store-information .faq-wrapper__inner .box:last-child {
     margin-bottom: 0;
-  }
-  main section#store-information .faq-wrapper__inner .sns {
-    margin-top: 10rem;
-  }
-  main section#store-information .faq-wrapper__inner .sns .title {
-    margin-bottom: 3.5rem;
-    font-size: 30px;
-    font-size: 3rem;
-    text-align: center;
-  }
-  main section#store-information .faq-wrapper__inner .sns a {
-    display: block;
-    margin: 0 auto;
-    width: 5rem;
   }
 }

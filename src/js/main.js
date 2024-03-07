@@ -192,7 +192,7 @@ class main {
     for (let i = 0; i < this.swiperContainer.length; i++) {
       let thisSwiper = this.swiperContainer[i];
       let space = 40;
-      let slides = 1.5;
+      let slides = 1.1;
       let speed = 1000;
       let loop = true;
       let center = true;

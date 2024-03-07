@@ -599,7 +599,10 @@ ul {
     }
     .note {
       @include fontvw(20);
-      line-height: (34.82 / 20)
+      line-height: (34.82 / 20);
+      &.black {
+        color: $black;
+      }
     }
     section {
       position: relative;
@@ -633,6 +636,22 @@ ul {
       &#about {
         padding: vw(75) 0;
         background-color: $lightGray;
+        .section-title {
+          margin-bottom: vw(75);
+        }
+        .sns {
+          margin-top: vw(100);
+          .title {
+            margin-bottom: vw(40);
+            @include fontvw(45);
+            text-align: center;
+          }
+          a {
+            display: block;
+            margin: 0 auto;
+            width: vw(75);
+          }
+        }
         .section {
           &-title {
             margin-bottom: vw(40);
@@ -662,6 +681,12 @@ ul {
             color: $white;
             z-index: 1;
           }
+        }
+        .swiper-container {
+          position: relative;
+          left: 50%;
+          width: 110vw;
+          transform: translate3d(-50%, 0, 0);
         }
       }
       &#shop-list {
@@ -723,6 +748,7 @@ ul {
             }
             &-name {
               color: $black;
+              line-height: 1.4;
               span {
                 display: block;
               }
@@ -821,14 +847,18 @@ ul {
             color: $white;
             background-color: $navy;
             p {
-              @include fitcenter();
+              // @include fitcenter();
+              text-align: center;
+              span {
+                display: block;
+              }
             }
             .small {
               margin-bottom: vw(10);
-              @include fontvw(10);
+              @include fontvw(20);
               &.yugothic {
                 margin-top: vw(10);
-                @include fontvw(10);
+                @include fontvw(20);
               }
             }
             &:last-child {
@@ -933,19 +963,6 @@ ul {
                   margin-bottom: 0;
                 }
               }
-              .sns {
-                margin-top: vw(100);
-                .title {
-                  margin-bottom: vw(40);
-                  @include fontvw(45);
-                  text-align: center;
-                }
-                a {
-                  display: block;
-                  margin: 0 auto;
-                  width: vw(75);
-                }
-              }
             }
           }
         }
@@ -959,6 +976,9 @@ ul {
     .swiper-wrapper {
       transition-timing-function: linear;
     }
+  }
+  .scroll-trigger {
+    cursor: pointer;
   }
   .show {
     opacity: 0;
@@ -1089,7 +1109,7 @@ ul {
       }
     }
     &.no-limited {
-      .limited {
+      .limited-title {
         display: none;
       }
     }
@@ -1234,9 +1254,26 @@ ul {
       left: 0;
       height: rem(70);
       width: rem(120);
-      background-color: $navy;
+      background-color: $white;
+      z-index: 1;
+      &:hover {
+        &::before {
+          // background-color: rgba(40, 21, 117, .5);
+        }
+      }
+      &::before {
+        @include center();
+        content: '';
+        height: 100%;
+        width: 100%;
+        background-color: $navy;
+        will-change: background-color;
+        transition: background-color 0.5s $zoom;
+      }
       img {
+        position: relative;
         width: rem(95.4514);
+        z-index: 1;
       }
     }
     .menu-trigger {
@@ -1450,7 +1487,7 @@ ul {
     .section__inner {
       margin: 0 auto;
       width: 82.03125%;
-      max-width: rem(1050);
+      max-width: rem(1280);
     }
     .section-title {
       font-family: $Shippori;
@@ -1481,7 +1518,10 @@ ul {
     }
     .note {
       @include fontsize(10);
-      line-height: (18 / 10)
+      line-height: (18 / 10);
+      &.black {
+        color: $black;
+      }
     }
     section {
       position: relative;
@@ -1516,11 +1556,35 @@ ul {
       &#about {
         padding: rem(75) 0;
         background-color: $lightGray;
+        .inline-block {
+          display: inline-block;
+          text-align: left;
+        }
+        .section-title {
+          margin-bottom: rem(75);
+        }
+        .sns {
+          margin-top: rem(100);
+          .title {
+            margin-bottom: rem(35);
+            @include fontsize(30);
+            text-align: center;
+          }
+          a {
+            display: block;
+            margin: 0 auto;
+            width: rem(50);
+          }
+        }
         .section {
+          &__inner {
+            text-align: center;
+          }
           &-title {
             margin-bottom: rem(35);
             @include fontsize(53.39);
             line-height: 1.6;
+            white-space: nowrap;
             color: $navy;
           }
           &-text {
@@ -1609,6 +1673,7 @@ ul {
             }
             &-name {
               color: $black;
+              line-height: 1.4;
               span {
                 display: block;
               }
@@ -1808,19 +1873,6 @@ ul {
                 }
                 &:last-child {
                   margin-bottom: 0;
-                }
-              }
-              .sns {
-                margin-top: rem(100);
-                .title {
-                  margin-bottom: rem(35);
-                  @include fontsize(30);
-                  text-align: center;
-                }
-                a {
-                  display: block;
-                  margin: 0 auto;
-                  width: rem(50);
                 }
               }
             }

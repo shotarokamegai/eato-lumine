@@ -641,6 +641,12 @@ ul {
         background-color: $lightGray;
         .section-title {
           margin-bottom: vw(75);
+          @include fontvw(45);
+          text-align: center;
+          .text {
+            padding-bottom: vw(25);
+            display: inline-block;
+          }
         }
         .sns {
           margin-top: vw(100);
@@ -656,7 +662,7 @@ ul {
           }
         }
         .section {
-          &-title {
+          &-title-ja {
             margin-bottom: vw(40);
             @include fontvw(56);
             line-height: (82 / 56);
@@ -860,7 +866,7 @@ ul {
               margin-bottom: vw(10);
               @include fontvw(20);
               &.yugothic {
-                margin-top: vw(10);
+                margin-top: vw(9);
                 @include fontvw(20);
               }
             }
@@ -1565,6 +1571,12 @@ ul {
         }
         .section-title {
           margin-bottom: rem(75);
+          @include fontsize(45);
+          align-items: flex-end;
+          .text {
+            padding-bottom: rem(20);
+            display: inline-block;
+          }
         }
         .sns {
           margin-top: rem(100);
@@ -1583,7 +1595,7 @@ ul {
           &__inner {
             text-align: center;
           }
-          &-title {
+          &-title-ja {
             margin-bottom: rem(35);
             @include fontsize(53.39);
             line-height: 1.6;

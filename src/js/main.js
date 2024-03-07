@@ -107,16 +107,12 @@ class main {
       this.overlayLimitedText.innerHTML = elm.getAttribute('data-productdesc');
       this.overlayCat.innerHTML = elm.getAttribute('data-cat');
       this.overlayTel.innerHTML = elm.getAttribute('data-tel');
-      for (let i = 0; i < this.swipers.length; i++) {
-        if (this.swipers[i].className === 'product-slider') {
-          this.swipers[i].wrapper.slideTo(0,0);
-        }
-      }
       this.overlay.classList.remove('no-limited');
       if (elm.getAttribute('data-limited') === '') {
         this.overlay.classList.add('no-limited');
       }
       imagesLoaded(this.overlayLogo, () => {
+        this.initProductSwiper();
         this.overlay.classList.add('active');
       });
     }
@@ -187,12 +183,57 @@ class main {
       this.triggerQa(target.getElementsByClassName('q')[0]);
     }
   }
+  
+  initProductSwiper() {
+    this.productSwiper.destroy();
+    for (let i = 0; i < this.swiperContainer.length; i++) {
+      let thisSwiper = this.swiperContainer[i];
+      let space = 0;
+      let swiper = '';
+      let slides = 1;
+      let speed = 1000;
+      let loop = true;
+      let center = true;
+      let pagination = {
+          el: ".swiper-pagination",
+          clickable: true,
+        };
+      let className = 'product-slider';
+      let autoplay = {
+          delay: 5000,
+          // pauseOnMouseEnter: true,
+          disableOnInteraction: false,
+        };
+      if (thisSwiper.classList.contains('product-slider')) {
+      swiper = new Swiper(thisSwiper, {
+        // Optional parameters
+        // direction: 'vertical',
+        className: className,
+        centeredSlides: center,
+        speed: speed,
+        observer: true,
+        // initialSlide: initialSlide,
+        loop: loop,
+        autoplay: autoplay,
+        slidesPerView: slides,
+        spaceBetween: space,
+        pagination: pagination,
+        on: {
+          init: () => {
+            ScrollTrigger.refresh();
+          },
+        },
+      });
+      this.productSwiper = swiper;
+      }
+    }
+  }
 
   initSwiper() {
     for (let i = 0; i < this.swiperContainer.length; i++) {
       let thisSwiper = this.swiperContainer[i];
       let space = 40;
-      let slides = 1.1;
+      let slides = 1.2;
       let speed = 1000;
       let loop = true;
       let center = true;
@@ -238,6 +279,7 @@ class main {
         className: className,
         centeredSlides: center,
         speed: speed,
+        observer: true,
         // initialSlide: initialSlide,
         loop: loop,
         autoplay: autoplay,
@@ -250,7 +292,11 @@ class main {
           },
         },
       });
-      this.swipers.push({wrapper: swiper, className: className});
+      if (className !== 'product-slider') {
+        this.swipers.push({wrapper: swiper, className: className});
+      } else {
+        this.productSwiper = swiper;
+      }
     }
   }
 

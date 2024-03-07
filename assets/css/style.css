@@ -1336,6 +1336,13 @@ ul.dot li::before {
   }
   main section#about .section-title {
     margin-bottom: 10vw;
+    font-size: 2.25rem;
+    font-size: 6vw;
+    text-align: center;
+  }
+  main section#about .section-title .text {
+    padding-bottom: 3.3333333333vw;
+    display: inline-block;
   }
   main section#about .sns {
     margin-top: 13.3333333333vw;
@@ -1351,7 +1358,7 @@ ul.dot li::before {
     margin: 0 auto;
     width: 10vw;
   }
-  main section#about .section-title {
+  main section#about .section-title-ja {
     margin-bottom: 5.3333333333vw;
     font-size: 2.8rem;
     font-size: 7.4666666667vw;
@@ -1551,7 +1558,7 @@ ul.dot li::before {
     font-size: 2.6666666667vw;
   }
   main section#store-information .title-wrapper .title .small.yugothic {
-    margin-top: 1.3333333333vw;
+    margin-top: 1.2vw;
     font-size: 1rem;
     font-size: 2.6666666667vw;
   }
@@ -2301,6 +2308,13 @@ ul.dot li::before {
   }
   main section#about .section-title {
     margin-bottom: 7.5rem;
+    font-size: 45px;
+    font-size: 4.5rem;
+    align-items: flex-end;
+  }
+  main section#about .section-title .text {
+    padding-bottom: 2rem;
+    display: inline-block;
   }
   main section#about .sns {
     margin-top: 10rem;
@@ -2319,7 +2333,7 @@ ul.dot li::before {
   main section#about .section__inner {
     text-align: center;
   }
-  main section#about .section-title {
+  main section#about .section-title-ja {
     margin-bottom: 3.5rem;
     font-size: 53.39px;
     font-size: 5.339rem;

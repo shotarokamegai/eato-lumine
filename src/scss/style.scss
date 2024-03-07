@@ -77,6 +77,9 @@ body {
 .bold {
   font-weight: bold;
 }
+.light {
+  font-weight: lighter !important;
+}
 .shippori {
   font-family: $Shippori;
   font-weight: 800;
@@ -379,7 +382,9 @@ ul {
     position: fixed;
     top: 0;
     left:0;
+    height: vw(100);
     width: 100%;
+    background-color: $navy;
     z-index: 100;
     h1 {
       position: absolute;
@@ -535,6 +540,7 @@ ul {
       .sns {
         position: absolute;
         left: 50%;
+        width: 100%;
         bottom: vw(100);
         transform: translate3d(-50%, 0, 0);
         .title {
@@ -579,6 +585,7 @@ ul {
     }
   }
   main {
+    margin-top: vw(100);
     overflow: hidden;
     .section__inner {
       margin: 0 auto;
@@ -865,19 +872,26 @@ ul {
             @include fontvw(30);
             color: $white;
             background-color: $navy;
+            .shippori {
+              p {
+                &:nth-child(2) {
+                  margin: vw(15) 0 vw(10);
+                }
+              }
+            }
             p {
-              // @include fitcenter();
+              @include fitcenter();
               text-align: center;
               span {
-                display: block;
+                // display: block;
               }
             }
             .small {
-              margin-bottom: vw(10);
               @include fontvw(20);
               &.yugothic {
                 margin-top: vw(9);
                 @include fontvw(20);
+                line-height: 1.2;
               }
             }
             &:last-child {
@@ -1269,7 +1283,9 @@ ul {
     position: fixed;
     top: 0;
     left:0;
+    height: rem(70);
     width: 100%;
+    background-color: $navy;
     z-index: 100;
     h1 {
       position: absolute;
@@ -1507,6 +1523,7 @@ ul {
     }
   }
   main {
+    margin-top: rem(70);
     overflow: hidden;
     .section__inner {
       margin: 0 auto;
@@ -1802,12 +1819,16 @@ ul {
               @include fitcenter();
             }
             .small {
-              margin-right: rem(5);
+              margin-right: rem(10);
               @include fontsize(15);
+              &.ml {
+                margin-left: rem(10);
+                margin-right: 0;
+              }
               &.yugothic {
                 margin-left: rem(30);
-                margin-right: rem(30);
                 @include fontsize(10);
+                line-height: 1.2;
               }
             }
             &:last-child {

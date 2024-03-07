@@ -560,11 +560,16 @@ ul {
       width: vw(149.5959);
     }
     p {
+      position: relative;
       @include fontvw(20); 
       text-align: center;
       color: $white;
       .copy {
         @include fontvw(24); 
+        display: inline-block;
+        position: relative;
+        top: 0.3vw;
+        transform: scale(1.3);
       }
     }
   }

@@ -642,7 +642,7 @@ ul {
           }
           &-text {
             margin-bottom: vw(40);
-            @include fontvw(2);
+            @include fontvw(26);
             // letter-spacing: -.1vw;
             line-height: (54 / 30);
             white-space: nowrap;

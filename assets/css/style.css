@@ -1336,8 +1336,8 @@ ul.dot li::before {
   }
   main section#about .section-text {
     margin-bottom: 5.3333333333vw;
-    font-size: 0.1rem;
-    font-size: 0.2666666667vw;
+    font-size: 1.3rem;
+    font-size: 3.4666666667vw;
     line-height: 1.8;
     white-space: nowrap;
     color: #281575;

@@ -940,8 +940,12 @@ var main = /*#__PURE__*/function () {
         this.overlayCat.innerHTML = elm.getAttribute('data-cat');
         this.overlayTel.innerHTML = elm.getAttribute('data-tel');
         this.overlay.classList.remove('no-limited');
+        this.overlay.classList.remove('no-product');
         if (elm.getAttribute('data-limited') === '') {
           this.overlay.classList.add('no-limited');
+        }
+        if (elm.getAttribute('data-product') === '') {
+          this.overlay.classList.add('no-product');
         }
         imagesLoaded(this.overlayLogo, function () {
           _this2.initProductSwiper();

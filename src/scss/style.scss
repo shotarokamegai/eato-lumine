@@ -251,6 +251,11 @@ ul {
         display: none;
       }
     }
+    &.no-product {
+      .limited {
+        display: none;
+      }
+    }
     .close {
       position: fixed;
       top: vw(60);
@@ -1124,6 +1129,11 @@ ul {
     }
     &.no-limited {
       .limited-title {
+        display: none;
+      }
+    }
+    &.no-product {
+      .limited {
         display: none;
       }
     }

@@ -870,6 +870,9 @@ ul.dot li::before {
   #overlay.no-limited .limited {
     display: none;
   }
+  #overlay.no-product .limited {
+    display: none;
+  }
   #overlay .close {
     position: fixed;
     top: 8vw;
@@ -1799,6 +1802,9 @@ ul.dot li::before {
     background-color: rgb(40, 21, 117);
   }
   #overlay.no-limited .limited-title {
+    display: none;
+  }
+  #overlay.no-product .limited {
     display: none;
   }
   #overlay .close {

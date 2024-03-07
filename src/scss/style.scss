@@ -563,6 +563,9 @@ ul {
       @include fontvw(20); 
       text-align: center;
       color: $white;
+      .copy {
+        @include fontvw(24); 
+      }
     }
   }
   main {

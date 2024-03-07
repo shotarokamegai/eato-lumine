@@ -1007,12 +1007,12 @@ ul.dot li::before {
     justify-content: center;
     top: 0;
     left: 0;
-    height: 9.3333333333vw;
-    width: 16vw;
+    height: 13.3333333333vw;
+    width: 22.6666666667vw;
     background-color: rgb(40, 21, 117);
   }
   #header h1 img {
-    width: 12.7268533333vw;
+    width: 18.1333333333vw;
   }
   #header .menu-trigger {
     position: absolute;
@@ -1021,8 +1021,8 @@ ul.dot li::before {
     justify-content: center;
     top: 0;
     right: 0;
-    height: 9.3333333333vw;
-    width: 9.3333333333vw;
+    height: 13.3333333333vw;
+    width: 13.3333333333vw;
     background-color: rgb(40, 21, 117);
     z-index: 101;
   }

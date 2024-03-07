@@ -381,11 +381,11 @@ ul {
       @include fitcenter();
       top: 0;
       left: 0;
-      height: vw(70);
-      width: vw(120);
+      height: vw(100);
+      width: vw(170);
       background-color: $navy;
       img {
-        width: vw(95.4514);
+        width: vw(136);
       }
     }
     .menu-trigger {
@@ -393,8 +393,8 @@ ul {
       @include fitcenter();
       top: 0;
       right: 0;
-      height: vw(70);
-      width: vw(70);
+      height: vw(100);
+      width: vw(100);
       background-color: $navy;
       z-index: 101;
       &.active {

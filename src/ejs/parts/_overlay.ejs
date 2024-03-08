@@ -19,7 +19,13 @@
         </div>
         <div class="box">
             <div class="logo">
-                <img id="overlay-logo" src="./assets/img/logo/1.png" alt="">
+                <picture>
+                    <source id="overlay-logo-sp" srcset="./assets/img/info_sp.svg" media="(max-width:749px)" />
+                    <img id="overlay-logo-pc" src="./assets/img/info_pc.svg" alt="" />
+                  </picture>
+            </div>
+            <div class="time">
+                <p id="overlay-time"></p>
             </div>
             <div class="wrapper">
                 <div class="wrapper-content">

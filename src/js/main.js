@@ -18,9 +18,11 @@ class main {
     this.logo = document.getElementById('logo');
     this.menu = document.getElementById('menu');
     this.overlay = document.getElementById('overlay');
-    this.overlayLogo = document.getElementById('overlay-logo');
+    this.overlayLogoPc = document.getElementById('overlay-logo-pc');
+    this.overlayLogoSp = document.getElementById('overlay-logo-sp');
     this.overlayName = document.getElementById('overlay-name');
     this.overlayText = document.getElementById('overlay-text');
+    this.overlayTime = document.getElementById('overlay-time');
     this.overlayImgs = document.getElementById('overlay-imgs');
     this.overlayLimitedName = document.getElementById('overlay-limited-name');
     this.overlayLimitedText = document.getElementById('overlay-limited-text');
@@ -99,9 +101,11 @@ class main {
         </div>`;
       }
 
-      this.overlayLogo.setAttribute('src', `./assets/img/logo/${elm.getAttribute('data-index')}.png`);
+      this.overlayLogoPc.setAttribute('src', `./assets/img/logo_pc/${elm.getAttribute('data-index')}.png`);
+      this.overlayLogoSp.setAttribute('srcset', `./assets/img/logo_sp/${elm.getAttribute('data-index')}.png`);
       this.overlayName.innerHTML = elm.getAttribute('data-name');
       this.overlayText.innerHTML = elm.getAttribute('data-shopdesc');
+      this.overlayTime.innerHTML = elm.getAttribute('data-time');
       this.overlayImgs.innerHTML = imgs;
       this.overlayLimitedName.innerHTML = elm.getAttribute('data-product');
       this.overlayLimitedText.innerHTML = elm.getAttribute('data-productdesc');
@@ -115,7 +119,7 @@ class main {
       if (elm.getAttribute('data-product') === '') {
         this.overlay.classList.add('no-product');
       }
-      imagesLoaded(this.overlayLogo, () => {
+      imagesLoaded(this.overlayLogoPc, () => {
         this.initProductSwiper();
         this.overlay.classList.add('active');
       });

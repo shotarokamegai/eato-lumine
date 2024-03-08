@@ -1,15 +1,18 @@
 <%
 var order = parseInt(data['No']) % 4;
 %>
-<div id="shop<%- data['No'] %>" class="shop overlay-trigger addactive order<%- order %>" data-index="<%- data['No'] %>" data-name="<%- data['ショップ名'] %>" data-cat="<%- data['カテゴリ'] %>" data-tel="<%- data['℡'] %>" data-shopdesc="<%- data['ショップ紹介文'] %>" data-limited="<%- data['LIMITED ITEM かどうか'] %>" data-product="<%- data['商品名 \/ 値段'] %>" data-productdesc="<%- data['商品紹介文'] %>" data-imgnum="<%- data['画像枚数'] %>">
+<div id="shop<%- data['No'] %>" class="shop overlay-trigger addactive order<%- order %> <%- data['トップ画面のみ アイコンのカテゴリ'].toLowerCase() %>" data-index="<%- data['No'] %>" data-name="<%- data['ショップ名'] %>" data-cat="<%- data['カテゴリ'] %>" data-tel="<%- data['℡'] %>" data-shopdesc="<%- data['ショップ紹介文'] %>" data-limited="<%- data['LIMITED ITEM かどうか'] %>" data-product="<%- data['商品名 \/ 値段'] %>" data-productdesc="<%- data['商品紹介文'] %>" data-imgnum="<%- data['画像枚数'] %>" data-time="<%- data['営業時間'] %>">
     <div class="shop-img">
+      <p class="shop-tag bold">
+        <%- data['トップ画面のみ アイコンのカテゴリ'] %>
+      </p>
       <picture>
         <source srcset="./assets/img/product/<%- data['No'] %>_1.webp" width="1120" height="840" type="image/webp" />
         <img src="./assets/img/product/<%- data['No'] %>_1.png" width="1120" height="840" alt="" />
       </picture>
     </div>
     <p class="shop-name">
-        <span class="en bold"><%- data['ショップ名'] %></span>
-        <span class="ja"><%- data['カテゴリ'] %></span>
+        <span class="en bold"><%- data['ショップ名'].split('（サンジュウゴミリ）')[0] %></span>
+        <!-- <span class="ja"><%- data['カテゴリ'] %></span> -->
     </p>
 </div>

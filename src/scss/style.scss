@@ -325,6 +325,12 @@ ul {
               max-width: initial;
             }
           }
+          .time {
+            @include fontvw(22);
+            line-height: 1.2;
+            margin: 0 auto vw(15);
+            text-align: center;
+          }
           .wrapper {
             &-content {
               position: relative;
@@ -751,6 +757,46 @@ ul {
             opacity: 0;
             transform: translate3d(0, vw(20), 0);
             will-change: transform, opacity;
+            &.sweets {
+              .shop-img {
+              border: vw(2) solid #d77f75;
+              }
+              .shop-tag {
+                background-color: #d77f75;
+              }
+            }
+            &.food {
+              .shop-img {
+              border: vw(2) solid #e2b75c;
+              }
+              .shop-tag {
+                background-color: #e2b75c;
+              }
+            }
+            &.grocery {
+              .shop-img {
+              border: vw(2) solid #71b1a3;
+              }
+              .shop-tag {
+                background-color: #71b1a3;
+              }
+            }
+            &.restaurant・cafe {
+              .shop-img {
+              border: vw(2) solid #9fa0be;
+              }
+              .shop-tag {
+                background-color: #9fa0be;
+              }
+            }
+            &.others {
+              .shop-img {
+              border: vw(2) solid #a7b2be;
+              }
+              .shop-tag {
+                background-color: #a7b2be;
+              }
+            }
             &.active {
               opacity: 1;
               transform: translate3d(0, 0, 0);
@@ -765,9 +811,23 @@ ul {
               margin-right: 0;
             }
             &-img {
+              position: relative;
               margin-bottom: vw(20); 
               border-radius: vw(17.6471); 
               overflow: hidden;
+              .shop-tag {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 0 vw(10);
+                height: vw(30);
+                line-height: vw(30);
+                min-width: vw(100);
+                @include fontvw(20);
+                color: $white;
+                text-align: center;
+                z-index: 1;
+              }
               img {
                 // border-radius: vw(17.6471); 
               }
@@ -779,7 +839,7 @@ ul {
                 display: block;
               }
               .en {
-                margin-bottom: vw(10); 
+                // margin-bottom: vw(10); 
                 @include fontvw(24.02);
               }
               .ja {
@@ -1179,11 +1239,13 @@ ul {
       }
     }
     .inner {
+      align-items: stretch;
       width: 78.125%;
-      max-width: rem(1000); 
+      max-width: rem(1100); 
       .box {
+        position: relative;
         &:nth-child(1) {
-          width: 56%;
+          width: 50.9090909090909%;
           .swiper-container {
             position: relative;
             border-radius: rem(30);
@@ -1191,12 +1253,12 @@ ul {
             width: 100%;
           }
           .swiper-pagination {
-            position: relative;
             top: auto;
-            left: auto;
+            left: 50%;
             right: auto;
-            bottom: auto;
-            margin: rem(35) auto 0;
+            bottom: rem(-30);
+            margin: 0;
+            transform: translate3d(-50%, 0, 0);
             &-bullet {
               margin-right: rem(20);
               margin-left: 0;
@@ -1211,16 +1273,27 @@ ul {
           }
         }
         &:nth-child(2) {
-          width: 39%;
+          display: flex;
+          align-items: end;
+          width: 44.545454545454544%;
           color: $black;
+          .time {
+            position: absolute;
+            top: 0;
+            left: 0;
+            p {
+              @include fontsize(12);
+              line-height: 1.4;
+            }
+          }
           .logo {
-            position: relative;
-            margin: 0 0 0 auto;
+            position: absolute;
+            top: 0;
+            right: 0;
             height: rem(80);
             width: rem(140);
             overflow: visible;
             img {
-              @include center();
               height: 200%;
               width: auto;
               max-width: initial;
@@ -1687,14 +1760,54 @@ ul {
             opacity: 0;
             transform: translate3d(0, rem(20), 0);
             will-change: transform, opacity;
+            &.sweets {
+              .shop-img {
+              border: rem(2) solid #d77f75;
+              }
+              .shop-tag {
+                background-color: #d77f75;
+              }
+            }
+            &.food {
+              .shop-img {
+              border: rem(2) solid #e2b75c;
+              }
+              .shop-tag {
+                background-color: #e2b75c;
+              }
+            }
+            &.grocery {
+              .shop-img {
+              border: rem(2) solid #71b1a3;
+              }
+              .shop-tag {
+                background-color: #71b1a3;
+              }
+            }
+            &.restaurant・cafe {
+              .shop-img {
+              border: rem(2) solid #9fa0be;
+              }
+              .shop-tag {
+                background-color: #9fa0be;
+              }
+            }
+            &.others {
+              .shop-img {
+              border: rem(2) solid #a7b2be;
+              }
+              .shop-tag {
+                background-color: #a7b2be;
+              }
+            }
             @for $i from 1 through 4 {
               &.order#{$i} {
                 transition: transform $slow 3s #{($i - 1) * 0.1}s, opacity $slow 3s #{($i - 1) * 0.1}s;
               }
             }
-              &.order0 {
-                transition: transform $slow 3s .3s, opacity $slow 3s .3s;
-              }
+            &.order0 {
+              transition: transform $slow 3s .3s, opacity $slow 3s .3s;
+            }
             &.active {
               opacity: 1;
               transform: translate3d(0, 0, 0);
@@ -1712,6 +1825,19 @@ ul {
               margin-bottom: rem(10); 
               border-radius: rem(12.8571); 
               overflow: hidden;
+              .shop-tag {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 0 rem(10);
+                height: rem(20);
+                line-height: rem(20);
+                min-width: rem(50);
+                @include fontsize(12);
+                color: $white;
+                text-align: center;
+                z-index: 1;
+              }
               img {
                 // border-radius: rem(12.8571); 
                 will-change: transform;
@@ -1725,7 +1851,7 @@ ul {
                 display: block;
               }
               .en {
-                margin-bottom: rem(5); 
+                // margin-bottom: rem(5); 
                 @include fontsize(14);
               }
               .ja {

@@ -78,7 +78,7 @@ body {
   font-weight: bold;
 }
 .light {
-  font-weight: lighter !important;
+  font-weight: 100 !important;
 }
 .shippori {
   font-family: $Shippori;
@@ -887,10 +887,10 @@ ul {
               }
             }
             .small {
-              @include fontvw(20);
+              @include fontvw(22);
               &.yugothic {
                 margin-top: vw(9);
-                @include fontvw(20);
+                @include fontvw(22);
                 line-height: 1.2;
               }
             }

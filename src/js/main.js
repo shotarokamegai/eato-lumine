@@ -209,26 +209,30 @@ class main {
           disableOnInteraction: false,
         };
       if (thisSwiper.classList.contains('product-slider')) {
-      swiper = new Swiper(thisSwiper, {
-        // Optional parameters
-        // direction: 'vertical',
-        className: className,
-        centeredSlides: center,
-        speed: speed,
-        observer: true,
-        // initialSlide: initialSlide,
-        loop: loop,
-        autoplay: autoplay,
-        slidesPerView: slides,
-        spaceBetween: space,
-        pagination: pagination,
-        on: {
-          init: () => {
-            ScrollTrigger.refresh();
+        if (thisSwiper.getElementsByClassName('swiper-slide').length === 1) {
+          loop = false;
+          autoplay = false;
+        }
+        swiper = new Swiper(thisSwiper, {
+          // Optional parameters
+          // direction: 'vertical',
+          className: className,
+          centeredSlides: center,
+          speed: speed,
+          observer: true,
+          // initialSlide: initialSlide,
+          loop: loop,
+          autoplay: autoplay,
+          slidesPerView: slides,
+          spaceBetween: space,
+          pagination: pagination,
+          on: {
+            init: () => {
+              ScrollTrigger.refresh();
+            },
           },
-        },
-      });
-      this.productSwiper = swiper;
+        });
+        this.productSwiper = swiper;
       }
     }
   }

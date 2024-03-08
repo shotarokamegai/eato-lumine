@@ -1045,6 +1045,10 @@ var main = /*#__PURE__*/function () {
           disableOnInteraction: false
         };
         if (thisSwiper.classList.contains('product-slider')) {
+          if (thisSwiper.getElementsByClassName('swiper-slide').length === 1) {
+            loop = false;
+            autoplay = false;
+          }
           swiper = new Swiper(thisSwiper, {
             // Optional parameters
             // direction: 'vertical',

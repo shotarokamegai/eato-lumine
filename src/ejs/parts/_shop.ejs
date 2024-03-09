@@ -3,7 +3,7 @@ var order = parseInt(data['No']) % 4;
 %>
 <div id="shop<%- data['No'] %>" class="shop overlay-trigger addactive order<%- order %> <%- data['トップ画面のみ アイコンのカテゴリ'].toLowerCase() %>" data-index="<%- data['No'] %>" data-name="<%- data['ショップ名'] %>" data-cat="<%- data['カテゴリ'] %>" data-tel="<%- data['℡'] %>" data-shopdesc="<%- data['ショップ紹介文'] %>" data-limited="<%- data['LIMITED ITEM かどうか'] %>" data-product="<%- data['商品名 \/ 値段'] %>" data-productdesc="<%- data['商品紹介文'] %>" data-imgnum="<%- data['画像枚数'] %>" data-time="<%- data['営業時間'] %>">
     <div class="shop-img">
-      <p class="shop-tag bold">
+      <p class="shop-tag">
         <%- data['トップ画面のみ アイコンのカテゴリ'] %>
       </p>
       <picture>

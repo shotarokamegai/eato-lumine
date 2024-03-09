@@ -1423,6 +1423,10 @@ ul.dot li::before {
   main section#shop-list {
     padding: 10vw 0;
   }
+  main section#shop-list .info {
+    margin: 0 auto 10vw;
+    width: 89.6vw;
+  }
   main section#shop-list .section-title {
     margin-bottom: 6.6666666667vw;
     font-size: 2.25rem;
@@ -1515,9 +1519,10 @@ ul.dot li::before {
     height: 4vw;
     line-height: 4vw;
     min-width: 13.3333333333vw;
-    font-size: 1rem;
-    font-size: 2.6666666667vw;
+    font-size: 1.1rem;
+    font-size: 2.9333333333vw;
     color: #ffffff;
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
     text-align: center;
     z-index: 1;
   }
@@ -2458,6 +2463,10 @@ ul.dot li::before {
   main section#shop-list {
     padding: 7.5rem 0;
   }
+  main section#shop-list .info {
+    margin: 0 auto 7.5rem;
+    width: 67.2rem;
+  }
   main section#shop-list .section-title {
     margin-bottom: 9rem;
     font-size: 45px;
@@ -2555,9 +2564,10 @@ ul.dot li::before {
     height: 2rem;
     line-height: 2rem;
     min-width: 5rem;
-    font-size: 12px;
-    font-size: 1.2rem;
+    font-size: 14px;
+    font-size: 1.4rem;
     color: #ffffff;
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
     text-align: center;
     z-index: 1;
   }

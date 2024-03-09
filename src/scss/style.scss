@@ -723,6 +723,10 @@ ul {
       }
       &#shop-list {
         padding: vw(75) 0;
+        .info {
+          margin: 0 auto vw(75);
+          width: vw(672);
+        }
         .section {
           &-title {
             margin-bottom: vw(50);
@@ -823,8 +827,9 @@ ul {
                 height: vw(30);
                 line-height: vw(30);
                 min-width: vw(100);
-                @include fontvw(20);
+                @include fontvw(22);
                 color: $white;
+                font-family: Futura,Trebuchet MS,Arial,sans-serif; 
                 text-align: center;
                 z-index: 1;
               }
@@ -1731,6 +1736,10 @@ ul {
       }
       &#shop-list {
         padding: rem(75) 0;
+        .info {
+          margin: 0 auto rem(75);
+          width: rem(672);
+        }
         .section {
           &-title {
             margin-bottom: rem(90);
@@ -1833,8 +1842,9 @@ ul {
                 height: rem(20);
                 line-height: rem(20);
                 min-width: rem(50);
-                @include fontsize(12);
+                @include fontsize(14);
                 color: $white;
+                font-family: Futura,Trebuchet MS,Arial,sans-serif; 
                 text-align: center;
                 z-index: 1;
               }

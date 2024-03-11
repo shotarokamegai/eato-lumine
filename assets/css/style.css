@@ -954,8 +954,7 @@ ul.dot li::before {
     font-size: 1.1rem;
     font-size: 2.9333333333vw;
     line-height: 1.2;
-    margin: 0 auto 2vw;
-    text-align: center;
+    margin: 0 auto 2vw 0;
   }
   #overlay .inner .box:nth-child(2) .wrapper-content {
     position: relative;
@@ -1874,6 +1873,9 @@ ul.dot li::before {
   #overlay.no-product .limited {
     display: none;
   }
+  #overlay.no-product .inner .box:nth-child(2) .wrapper-content {
+    padding-bottom: 0;
+  }
   #overlay .close {
     position: absolute;
     top: 5rem;
@@ -1945,9 +1947,7 @@ ul.dot li::before {
     color: #000000;
   }
   #overlay .inner .box:nth-child(2) .time {
-    position: absolute;
-    top: 0;
-    left: 0;
+    margin-bottom: 2rem;
   }
   #overlay .inner .box:nth-child(2) .time p {
     font-size: 12px;

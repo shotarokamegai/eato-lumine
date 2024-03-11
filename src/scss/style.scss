@@ -328,8 +328,7 @@ ul {
           .time {
             @include fontvw(22);
             line-height: 1.2;
-            margin: 0 auto vw(15);
-            text-align: center;
+            margin: 0 auto vw(15) 0;
           }
           .wrapper {
             &-content {
@@ -1215,6 +1214,9 @@ ul {
       .limited {
         display: none;
       }
+      .inner .box:nth-child(2) .wrapper-content {
+        padding-bottom: 0;
+      }
     }
     .close {
       position: absolute;
@@ -1283,9 +1285,7 @@ ul {
           width: 44.545454545454544%;
           color: $black;
           .time {
-            position: absolute;
-            top: 0;
-            left: 0;
+            margin-bottom: rem(20);
             p {
               @include fontsize(12);
               line-height: 1.4;
